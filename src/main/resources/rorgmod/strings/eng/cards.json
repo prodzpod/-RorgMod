@@ -157,7 +157,7 @@
     "UPGRADE_DESCRIPTION": "Channel 2 random Orbs."
   },
   "rorgmod:Bad Sector": {
-    "NAME": "πBad Sector",
+    "NAME": "Bad Sector",
     "DESCRIPTION": "Channel 2 Lightning, Shuffle a *Burn into your draw pile.",
     "UPGRADE_DESCRIPTION": ""
   },
@@ -190,5 +190,9 @@
     "NAME": "Corpse Explosion",
     "DESCRIPTION": "CE is Deprecated.",
     "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Black Ice": {
+    "NAME": "Black Ice",
+    "DESCRIPTION": "E"
   }
 }

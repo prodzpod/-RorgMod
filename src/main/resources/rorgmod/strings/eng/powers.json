@@ -72,5 +72,12 @@
       "The first time you Evoke Plasma each turn, Draw #b",
       " cards."
     ]
+  },
+  "rorgmod:Black Ice": {
+    "NAME": "Black Ice",
+    "DESCRIPTIONS": [
+      "Each time you evokes Frost, Channel #b",
+      " Dark."
+    ]
   }
 }

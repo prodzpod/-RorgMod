@@ -11,6 +11,7 @@ public class Catalyst extends AbstractRorgCard {
     public Catalyst() {
         super(CARD_ID, "rorgmod/cards/catalyst.png", 2, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setCostUpgrade();
+        setExhaust();
     }
 
     @Override

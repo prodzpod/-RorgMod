@@ -157,7 +157,7 @@
     "UPGRADE_DESCRIPTION": "무작위 구체를 !M! 번 영창합니다."
   },
   "rorgmod:Bad Sector": {
-    "NAME": "π불량 섹터",
+    "NAME": "불량 섹터",
     "DESCRIPTION": "전기를 2 번 영창합니다, NL *화상 을 뽑을 카드 더미에 넣습니다.",
     "UPGRADE_DESCRIPTION": ""
   },

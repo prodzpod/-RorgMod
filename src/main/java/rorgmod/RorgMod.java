@@ -4,7 +4,6 @@ import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.devcommands.unlock.Unlock;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -16,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.Apparition;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -52,13 +52,13 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
     private static SpireConfig config;
 
     public static boolean enableDebuffect;
-    public static boolean enableShadowmeld;
+    public static boolean enableBetaCards;
 
     public RorgMod() {
         BaseMod.subscribe(this);
         Properties defaults = new Properties();
         defaults.setProperty("enableDebuffect", "FALSE");
-        defaults.setProperty("enableShadowmeld", "FALSE");
+        defaults.setProperty("enableBetaCards", "FALSE");
         try {
             config = new SpireConfig("RRrroohrrRGHHhhh!!", "RorgModConfig", defaults);
         } catch (IOException e) {
@@ -78,15 +78,15 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
                 logger.warn("Config was set wrong, setting default instead");
                 break;
         }
-        switch (config.getString("enableShadowmeld")) {
+        switch (config.getString("enableBetaCards")) {
             case "TRUE":
-                RorgMod.enableShadowmeld = true;
+                RorgMod.enableBetaCards = true;
                 break;
             case "FALSE":
-                RorgMod.enableShadowmeld = false;
+                RorgMod.enableBetaCards = false;
                 break;
             default:
-                RorgMod.enableShadowmeld = false;
+                RorgMod.enableBetaCards = false;
                 logger.warn("Config was set wrong, setting default instead");
                 break;
         }
@@ -113,15 +113,15 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         });
         settingsPanel.addUIElement(debuffect);
 
-        ModLabeledToggleButton shadowmeld = new ModLabeledToggleButton(TEXT[3], 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, settingsPanel, label -> {}, button -> {
-            RorgMod.enableShadowmeld = button.enabled;
-            RorgMod.config.setString("enableShadowmeld", enableShadowmeld ? "TRUE" : "FALSE");
+        ModLabeledToggleButton BetaCards = new ModLabeledToggleButton(TEXT[3], 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, settingsPanel, label -> {}, button -> {
+            RorgMod.enableBetaCards = button.enabled;
+            RorgMod.config.setString("enableBetaCards", enableBetaCards ? "TRUE" : "FALSE");
             try {RorgMod.config.save();} catch (IOException e) {
                 logger.warn("Config save failed at:");
                 e.printStackTrace();
             }
         });
-        settingsPanel.addUIElement(shadowmeld);
+        settingsPanel.addUIElement(BetaCards);
 
         ModLabel label = new ModLabel(TEXT[4], 350.0f, 600.0f, settingsPanel, me -> {});
         settingsPanel.addUIElement(label);
@@ -164,12 +164,17 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
                 new ThunderStrike(),
                 new NeutronShower(),
                 new Chaos(),
-                new BadSector(),
-                new DenialOfService(),
                 new SearingBlow(),
                 new Immolate(),
                 new Hexaburn(),
                 new Catalyst()
+        };
+
+        final AbstractCard cardsBeta[] = {
+                new DenialOfService(),
+                new BadSector(),
+                new Shadowmeld(),
+                new BlackIce()
         };
 
         for (AbstractCard card : cards) {
@@ -177,9 +182,11 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
             UnlockTracker.unlockCard(card.cardID);
         }
 
-        if (this.enableShadowmeld) {
-            BaseMod.addCard(new Shadowmeld());
-            UnlockTracker.unlockCard(Shadowmeld.CARD_ID);
+        if (this.enableBetaCards) {
+            for (AbstractCard card : cardsBeta) {
+                BaseMod.addCard(card);
+                UnlockTracker.unlockCard(card.cardID);
+            }
         }
 
         BaseMod.removeCard("Scrape", AbstractCard.CardColor.BLUE);
@@ -195,6 +202,7 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         BaseMod.removeCard("Corpse Explosion", AbstractCard.CardColor.GREEN); // TODO: rework ce
         BaseMod.removeCard("Underhanded Strike", AbstractCard.CardColor.GREEN); // TODO: rework sneaky strike
         BaseMod.removeCard("Catalyst", AbstractCard.CardColor.GREEN);
+        BaseMod.removeCard("Apparition", AbstractCard.CardColor.COLORLESS);
     }
 
     @Override
@@ -230,6 +238,7 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         BaseMod.removeRelic(new MummifiedHand());
         BaseMod.removeRelic(new Melange());
         BaseMod.removeRelic(new DarkstonePeriapt());
+        BaseMod.removeRelic(new VioletLotus());
     }
 
     @Override

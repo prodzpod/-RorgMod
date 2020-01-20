@@ -33,7 +33,7 @@
     ]
   },
   "rorgmod:Centralize": {
-    "NAME": "Centralize",
+    "NAME": "중앙집중",
     "DESCRIPTIONS": [
       "다음에 발현하는 구체는 #b",
       " 번 더 발현됩니다."
@@ -64,6 +64,13 @@
     "NAME": "그림자융융",
     "DESCRIPTIONS": [
       "매 턴마다 암흑을 1 번 영창합니다. 구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동시킵니다."
+    ]
+  },
+  "rorgmod:Black Ice": {
+    "NAME": "검은 얼음",
+    "DESCRIPTIONS": [
+      "냉기를 발현할 때 마다 암흑을 #b",
+      " 번 영창합니다."
     ]
   }
 }
