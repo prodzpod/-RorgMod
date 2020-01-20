@@ -49,8 +49,8 @@
   "rorgmod:Overheat": {
     "NAME": "Overheat",
     "DESCRIPTIONS": [
-      "Every time you Evoke Lightning this turn, apply 1 Vulnerable for #b",
-      " turns."
+      "Every time you Evoke Lightning this turn, apply #b",
+      " #yVulnerable."
     ]
   },
   "rorgmod:Go for the Eyes": {
@@ -75,6 +75,20 @@
   },
   "rorgmod:Black Ice": {
     "NAME": "Black Ice",
+    "DESCRIPTIONS": [
+      "Each time you Evoke Frost, Channel #b",
+      " Dark."
+    ]
+  },
+  "rorgmod:Defragment": {
+    "NAME": "Defragment",
+    "DESCRIPTIONS": [
+      "Lightnings deal #b",
+      " more damage for each Lightning you have."
+    ]
+  },
+  "rorgmod:Auto-Shields": {
+    "NAME": "Auto-Shields",
     "DESCRIPTIONS": [
       "Each time you evokes Frost, Channel #b",
       " Dark."

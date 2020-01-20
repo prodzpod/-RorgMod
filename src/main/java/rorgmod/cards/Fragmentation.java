@@ -9,13 +9,13 @@ public class Fragmentation extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Fragmentation";
 
     public Fragmentation() {
-        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);
+        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ALL);
         setAttack(5, 2);
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster) {
-        dealAOEDamage(damage, 2, AbstractGameAction.AttackEffect.SHIELD);
+        dealAOEDamage(damage, 2, AbstractGameAction.AttackEffect.LIGHTNING);
         loseOrbSlot(1);
     }
 

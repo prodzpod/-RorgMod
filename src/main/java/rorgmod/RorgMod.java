@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -15,21 +16,24 @@ import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Apparition;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.relics.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import rorgmod.cards.*;
+import rorgmod.commands.Reward;
+import rorgmod.events.AncientWritings;
 import rorgmod.events.GremlinWheel;
 import rorgmod.monsters.WheelGremlin;
 import rorgmod.powers.NoPower;
@@ -42,6 +46,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import static basemod.BaseMod.registerModBadge;
+import static basemod.BaseMod.removePotion;
 
 @SpireInitializer
 public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, PostInitializeSubscriber, PostPowerApplySubscriber {
@@ -50,6 +55,17 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
     private static UIStrings uistrings;
     private static final String ID = "rorgmod:Rorgmod";
     private static SpireConfig config;
+    public static String relicsToRemove[] = {
+        "DataDisk",
+        "Dead Branch",
+        "Empty Cage",
+        "Tiny House",
+        "Mummified Hand",
+        "Melange",
+        "Darkstone Periapt",
+        "VioletLotus",
+        "Incense Burner"
+    };
 
     public static boolean enableDebuffect;
     public static boolean enableBetaCards;
@@ -132,6 +148,11 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         BaseMod.addMonster(WheelGremlin.ID, WheelGremlin::new);
 
         BaseMod.addEvent(GremlinWheel.ID, GremlinWheel.class);
+        BaseMod.addEvent(AncientWritings.ID, AncientWritings.class);
+
+        removePotion(GhostInAJar.POTION_ID);
+
+        ConsoleCommand.addCommand("reward", Reward.class);
     }
 
     @Override
@@ -167,7 +188,14 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
                 new SearingBlow(),
                 new Immolate(),
                 new Hexaburn(),
-                new Catalyst()
+                new Catalyst(),
+                new Alchemize(),
+                new SadisticNature(),
+                new Defragment(),
+                new BiasedCognition(),
+                new Leap(),
+                new Reboot(),
+                new AutoShields()
         };
 
         final AbstractCard cardsBeta[] = {
@@ -203,6 +231,16 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         BaseMod.removeCard("Underhanded Strike", AbstractCard.CardColor.GREEN); // TODO: rework sneaky strike
         BaseMod.removeCard("Catalyst", AbstractCard.CardColor.GREEN);
         BaseMod.removeCard("Apparition", AbstractCard.CardColor.COLORLESS);
+        BaseMod.removeCard("Venomology", AbstractCard.CardColor.GREEN);
+        BaseMod.removeCard("Sadistic Nature", AbstractCard.CardColor.GREEN);
+        BaseMod.removeCard("Defragment", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Biased Cognition", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Leap", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Rip and Tear", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Beam Cell", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Steam", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Reboot", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Auto Shields", AbstractCard.CardColor.BLUE);
     }
 
     @Override
@@ -230,15 +268,7 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         UnlockTracker.addRelic(EmptyCageRework.ID);
         UnlockTracker.addRelic(CrimsonLotus.ID);
 
-        BaseMod.removeRelic(new DataDisk());
-        BaseMod.removeRelic(new DeadBranch());
-        BaseMod.removeRelic(new RunicCube());
-        BaseMod.removeRelic(new EmptyCage());
-        BaseMod.removeRelic(new TinyHouse()); // TODO: rework tiny house
-        BaseMod.removeRelic(new MummifiedHand());
-        BaseMod.removeRelic(new Melange());
-        BaseMod.removeRelic(new DarkstonePeriapt());
-        BaseMod.removeRelic(new VioletLotus());
+        for (String relic : relicsToRemove) BaseMod.removeRelic(RelicLibrary.getRelic(relic));
     }
 
     @Override
@@ -291,6 +321,5 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, source, abstractPower));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new NoPower(target, stack)));
         }
-
     }
 }

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import rorgmod.RorgMod;
 
 public class DecayingCore extends AbstractRorgRelic {
     public static String ID = "rorgmod:Decaying Core";
@@ -15,7 +16,9 @@ public class DecayingCore extends AbstractRorgRelic {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS) {
+//        RorgMod.logger.info("DecayingCore Debug");
+//        RorgMod.logger.info(damageAmount);
+        if (info.owner != null && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new ApplyPowerAction(info.owner, AbstractDungeon.player, new VulnerablePower(info.owner, 1, true)));

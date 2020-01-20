@@ -18,7 +18,8 @@ public class LRUCache extends AbstractRorgCard {
     public void use(AbstractPlayer player, AbstractMonster monster) {
         dealDamage(monster, damage, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         cycleOrbs(1);
-        triggerPassives(1, magicNumber);
+        if      (player.filledOrbCount() >= 2) triggerPassives(1, magicNumber);
+        else if (player.filledOrbCount() == 1) triggerPassives(0, magicNumber);
     }
 
     @Override

@@ -45,7 +45,7 @@ Rebalance/Rework mod for Slay the Spire.
   * Deal 6(8) damage. Cycle orbs clockwise 1 slot. Trigger the passive of your next orb 1(2) times.
 * **Critical Section** (2 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Apply 3(5) Bullseye and Vulnerable to ALL enemies. Exhaust.
-* **Fragmentation** (1 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue)
+* **Fragmentation** (1 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue)
   * Deal 5(7) damage twice to ALL enemies. Lose 1 Orb slot.
 * **Propelled Flight** (2 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Gain 6(8) Block twice. If you have 2 or more Dexterity, gain 6(8) Block during your next turn.
@@ -59,12 +59,12 @@ Rebalance/Rework mod for Slay the Spire.
   * Evoke your next Orb twice. Apply 3(5) Weak to ALL enemies. Exhaust.
 * **Radar Scan** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Apply 2(3) Bullseye to ALL enemies. Exhaust.
-* **Steady Aim** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+* **Steady Aim** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
   * Gain 4(5) block twice. Apply 1 Bullseye 2(3) times. 
 * **Centralize** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * The next Orb you would Evoke is Evoked an additional 2(3) times. 
-* **Overheat** (2(1) ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
-  * Every time you Evoke Lightning this turn, apply 1 Vulnerable. Exhaust. 
+* **Overheat** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+  * Every time you Evoke Lightning this turn, apply 1(2) Vulnerable. Exhaust. 
 * **Hot Sockets** (1 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue)
   * Evoke your next orb. Deal 4(5) damage to a random enemy for each empty orb slot.
 * **Metal Coating** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
@@ -84,7 +84,7 @@ Rebalance/Rework mod for Slay the Spire.
   * Channel 2 Lightning, Shuffle a Burn into your draw pile.
 * **Shadowmeld** (2 ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, Blue) **(ACTIVATE IN CONFIG)**
   * Channel 1 Dark at the start of your turn. Whenever you channel an Orb, trigger the passive ability of all Dark orbs.
-* **Denial of Service** (2 ![Energy](http://tinyurl.com/DefectEnergy), Power, Blue, Rare) **(ACTIVATE IN CONFIG)**
+* **Denial of Service** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Blue, Uncommon) **(ACTIVATE IN CONFIG)**
   * Deal 10(13) damage. If the enemy intends to attack, deal 10(13) damage again.
 * **Black Ice** (2(1) ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, Blue) **(ACTIVATE IN CONFIG)**
   * Each time you evokes Frost, Channel 1 Dark.
@@ -104,8 +104,23 @@ Rebalance/Rework mod for Slay the Spire.
   * Deal 16(+4, +5, +6...) damage. Can be Upgraded any number of times.
 * **Immolate** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Rare, Red)
   * Deal 20(26) damage. Shuffle a Burn into your *draw* pile.
-* **Catalyst** (2(1) ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Green)
+* **Catalyst** (2(1) ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Green)
   * Double the enemy's Poison. Exhaust.
+* **Alchemize** (1(0) ![Energy](http://tinyurl.com/DefectEnergy), Skill, Rare, *Colorless*)
+  * Obtain a random potion. Exhaust.
+* **Sadistic Nature** (*1* ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, *Green*)
+  * Whenever you apply a debuff to an enemy, they take *4(6)* damage.
+* **Defragment** (1(0) ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue)
+  * Lightnings deal 2 more damage for each Lightning you have.
+* **Biased Cognition** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, Blue)
+  * Gain *3(4)* Focus. At the start of your turn, lose 1 Focus.
+* **Leap** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+  * Gain 9(12) Block. Next turn, draw 1 additional card.
+* **Reboot** (0 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+  * Shuffle ALL your cards into your draw pile. Draw 4 cards. Exhaust.
+* **Auto-Shields** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue)
+  * Gain 2(3) Block for all Buffs and Debuffs you have.
+
 
 ### Removed Cards
 * **Scrape**
@@ -115,6 +130,9 @@ Rebalance/Rework mod for Slay the Spire.
 * **Corpse Explosion** (Reworked Version coming soon)
 * **Sneaky Strike** (Reworked Version coming soon)
 * **Apparition**
+* **Rip and Tear**
+* **Beam Cell** (Reworked Version coming soon)
+* **Steam Barrier**
 
 ### Added Relics
 * **Loose Gear** (Common, Blue)
@@ -129,8 +147,6 @@ Rebalance/Rework mod for Slay the Spire.
   * Whenever a card debuffs you, gain 1 Artifact.
 * **Liquid Mercury** (Shop, Blue)
   * At the start of your turn, apply 1 Vulnerable to all enemies if you have Plasma Channeled.
-* **Crimson Lotus** (Boss, Purple)
-  * Whenever you enter Wrath, Gain an ![Energy](http://tinyurl.com/DefectEnergy).
 
 ### Reworked Relics
 * **Data Disk** (*Uncommon*, Blue)
@@ -139,6 +155,8 @@ Rebalance/Rework mod for Slay the Spire.
   * Whenever you play a #yPower card, a random card in your hand costs #b0 that turn.
 * **Empty Cage** (Boss, Blue)
   * Upon pickup, remove 3 cards from your deck.
+* **Crimson Lotus** (Boss, Purple) (From **Violet Lotus**)
+  * Whenever you enter Wrath, Gain an ![Energy](http://tinyurl.com/DefectEnergy).
 
 ### Removed Relics
 * **Dead Branch**
@@ -147,6 +165,10 @@ Rebalance/Rework mod for Slay the Spire.
 * **Melange**
 * **Darkstone Periapt** (Reworked Version coming soon)
 * **Violet Lotus**
+* **Incense Burner**
+
+### Removed Potions
+* **Ghost in a Jar**
 
 ### Reworked Monsters
 * **Hexaghost**

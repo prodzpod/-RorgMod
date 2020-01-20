@@ -19,21 +19,14 @@ public class ZingZap extends AbstractRorgCard {
 
     public void applyPowers() {
         super.applyPowers();
-        int count = 0;
+        baseMagicNumber = 0;
         for(int i = 0; i < AbstractDungeon.player.orbs.size(); ++i) {
             if (AbstractDungeon.player.orbs.get(i) instanceof Lightning) {
-                count++;
+                baseMagicNumber += block;
             }
         }
 
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0] + count;
-        if (count == 1) { // singular
-            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
-        } else { // plural
-            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
-        }
-
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
 

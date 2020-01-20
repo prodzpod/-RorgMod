@@ -9,7 +9,7 @@ public class BlackIce extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Black Ice";
 
     public BlackIce() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 2, CardType.POWER, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
+        super(CARD_ID, DEFAULT_IMG_PATH_POWER, 2, CardType.POWER, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
         setCostUpgrade();
     }
 

@@ -1,22 +1,17 @@
 {
   "rorgmod:Abstract Rorg Card": {
     "NAME": "에러 카드",
-    "DESCRIPTION": "Rorg모드가 잘못되었습니다! STS 디스코드의 @prod#0339에게 보고해주세요.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Rorg모드가 잘못되었습니다! STS 디스코드의 @prod#0339에게 보고해주세요."
   },
   "rorgMod:Loose Screws": {
     "NAME": "헐거운 나사",
-    "DESCRIPTION": "피해를 !D! 줍니다. 이 턴에 공격 카드를 낼 때마다 구체 슬롯 1개를 얻습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "피해를 !D! 줍니다. 이 턴에 공격 카드를 낼 때마다 구체 슬롯 1개를 얻습니다. NL 소멸."
   },
   "rorgmod:Zing-Zap": {
     "NAME": "징-파지직",
     "DESCRIPTION": "전기 하나당 방어도를 !B! 얻습니다. 피해를 !D! 줍니다.",
-    "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      " NL (현재 전기 수: ",
-      " ).",
-      " )."
+      " NL (Gain !M! Block)."
     ]
   },
   "rorgmod:Fusion": {
@@ -26,8 +21,7 @@
   },
   "rorgmod:Ventilation Error": {
     "NAME": "환기 오류",
-    "DESCRIPTION": "가장 오른쪽의 구체를 2 번 발현합니다. 적 전체에게 약화를 !M! 부여합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "가장 오른쪽의 구체를 2 번 발현합니다. 적 전체에게 약화를 !M! 부여합니다. NL 소멸."
   },
   "rorgmod:SQL Injection": {
     "NAME": "SQL 주입",
@@ -40,38 +34,31 @@
   },
   "rorgmod:Refrigerate": {
     "NAME": "냉장",
-    "DESCRIPTION": "취약을 !M! 번 부여합니다. 냉기를 1 번 영창합니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "취약을 !M! 번 부여합니다. 냉기를 1 번 영창합니다."
   },
   "rorgmod:Antivirus": {
     "NAME": "백신",
-    "DESCRIPTION": "전투 중인 적 하나당 방어도를 !B! 얻습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "전투 중인 적 하나당 방어도를 !B! 얻습니다."
   },
   "rorgmod:LRU Cache": {
     "NAME": "LRU 캐시",
-    "DESCRIPTION": "피해를 !D! 줍니다. 첫 구체를 마지막으로 보냅니다. 가장 오른쪽 구체의 지속 효과를 !M! 번 발동시킵니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "피해를 !D! 줍니다. 첫 구체를 마지막으로 보냅니다. 가장 오른쪽 구체의 지속 효과를 !M! 번 발동시킵니다."
   },
   "rorgmod:Critical Section": {
     "NAME": "중요점",
-    "DESCRIPTION": "조준과 취약을 각각 !M! 번 부여합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "조준과 취약을 각각 !M! 번 부여합니다. NL 소멸."
   },
   "rorgmod:Fragmentation": {
     "NAME": "조각",
-    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 구체 슬롯을 1 개 잃습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 구체 슬롯을 1 개 잃습니다."
   },
   "rorgmod:Propelled Flight": {
     "NAME": "프로펠러",
-    "DESCRIPTION": "방어도를 !B! 만큼 두번 얻습니다. 민첩을 2 이상 갖고 있다면, 다음 턴에 방어도를 !B! 얻습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "방어도를 !B! 만큼 두번 얻습니다. 민첩을 2 이상 갖고 있다면, 다음 턴에 방어도를 !B! 얻습니다."
   },
   "rorgmod:Pusher Props": {
     "NAME": "후방 날개",
-    "DESCRIPTION": "피해를 !D! 만큼 두번 줍니다. 힘을 2 이상 갖고 있다면, 취약을 !M! 번 부여합니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "피해를 !D! 만큼 두번 줍니다. 힘을 2 이상 갖고 있다면, 취약을 !M! 번 부여합니다."
   },
   "rorgmod:Malware": {
     "NAME": "악성코드",
@@ -80,68 +67,54 @@
   },
   "rorgmod:Radar Scan": {
     "NAME": "레이더 스캔",
-    "DESCRIPTION": "모든 적에게 조준을 !M! 번 부여합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "모든 적에게 조준을 !M! 번 부여합니다. NL 소멸."
   },
   "rorgmod:Steady Aim": {
     "NAME": "안정적인 조준",
-    "DESCRIPTION": "방어도를 !B! 만큼 2번 얻습니다. 조준을 1 만큼 !M! 번 부여합니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "방어도를 !B! 만큼 2번 얻습니다. 조준을 1 만큼 !M! 번 부여합니다."
   },
   "rorgmod:Centralize": {
     "NAME": "중앙집중",
-    "DESCRIPTION": "다음으로 발현할 구체는 !M! 번 더 반복해서 발현됩니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "다음으로 발현할 구체는 !M! 번 더 반복해서 발현됩니다."
   },
   "rorgmod:Storm": {
     "NAME": "폭풍",
-    "DESCRIPTION": "전기를 영창할 때 마다 임시적 힘을 !M! 번 얻습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "전기를 영창할 때 마다 임시적 힘을 !M! 번 얻습니다."
   },
   "rorgmod:Overheat": {
     "NAME": "과열",
-    "DESCRIPTION": "이 턴에 전기를 발현할 때 마다 취약을 !M! 번 부여합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "이 턴에 전기를 발현할 때 마다 취약을 !M! 번 부여합니다. NL 소멸."
   },
   "rorgmod:Go for the Eyes": {
     "NAME": "눈 할퀴기",
-    "DESCRIPTION": "적에게 디버프를 줄 때마다 !M! 만큼 더 줍니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "적에게 디버프를 줄 때마다 !M! 만큼 더 줍니다."
   },
   "rorgmod:Hot Sockets": {
     "NAME": "핫 소켓",
     "DESCRIPTION": "가장 오른 쪽 구체를 발현합니다. 무작위 적에게 빈 구체 슬롯 갯수만큼 피해를 !D! 줍니다.",
-    "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      " NL (빈 구체 슬롯 수: ",
-      " ).",
-      " )."
+      " NL (Deal !M! Times)."
     ]
   },
   "rorgmod:Metal Coating": {
     "NAME": "금속 코팅",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. 손상을 !M! 번 얻습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "방어도를 !B! 얻습니다. 손상을 !M! 번 얻습니다."
   },
   "rorgmod:Shadowmeld": {
     "NAME": "암흑 융융",
-    "DESCRIPTION": "매 턴마다 암흑을 !M! 번 영창합니다. 구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동합니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "매 턴마다 암흑을 !M! 번 영창합니다. 구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동합니다."
   },
   "rorgmod:Biogeneration": {
     "NAME": "생물학적 발전",
-    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 플라즈마를 !M! 번 영창합니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다. 플라즈마를 !M! 번 영창합니다. NL 소멸."
   },
   "rorgmod:Volatility": {
     "NAME": "휘발",
-    "DESCRIPTION": "매 턴당 처음으로 플라즈마를 발현할 때, 카드를 !M! 장 뽑습니다. 플라즈마를 1 번 영창합니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "매 턴당 처음으로 플라즈마를 발현할 때, 카드를 !M! 장 뽑습니다. 플라즈마를 1 번 영창합니다."
   },
   "rorgmod:Thunder Strike": {
     "NAME": "전류 타격",
     "DESCRIPTION": "이번 전투에서 영창된 전기 하나당 무작위 적에게 피해를 !D! 줍니다.",
-    "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " (전기를 !M! 번 영창했습니다.)"
     ]
@@ -158,13 +131,11 @@
   },
   "rorgmod:Bad Sector": {
     "NAME": "불량 섹터",
-    "DESCRIPTION": "전기를 2 번 영창합니다, NL *화상 을 뽑을 카드 더미에 넣습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "전기를 2 번 영창합니다, NL *화상 을 뽑을 카드 더미에 넣습니다."
   },
   "rorgmod:Denial of Service": {
     "NAME": "서비스 거부",
-    "DESCRIPTION": "피해를 !D! 줍니다. 선택한 적이 공격할 의도가 있다면 피해를 다시 !D! 줍니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "피해를 !D! 줍니다. 선택한 적이 공격할 의도가 있다면 피해를 다시 !D! 줍니다."
   },
   "rorgmod:Searing Blow": {
     "NAME": "불태우는 일격",
@@ -176,17 +147,46 @@
   },
   "rorgmod:Hexaburn": {
     "NAME": "보랏빛 화상",
-    "DESCRIPTION": "사용불가. NL 내 턴 종료 시 피해를 !M! 받습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "사용불가. NL 내 턴 종료 시 피해를 !M! 받습니다."
   },
   "rorgmod:Catalyst": {
     "NAME": "촉매",
-    "DESCRIPTION": "적의 중독을 2 배로 늘립니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "적의 중독을 2 배로 늘립니다. NL 소멸."
   },
   "rorgmod:Corpse Explosion": {
     "NAME": "시체 폭발",
-    "DESCRIPTION": "CE는 삭제되었습니다.",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "CE는 삭제되었습니다."
+  },
+  "rorgmod:Black Ice": {
+    "NAME": "검은 얼음",
+    "DESCRIPTION": "냉기를 발현할 때 마다 암흑을 1 번 영창합니다."
+  },
+  "rorgmod:Alchemize": {
+    "NAME": "연금",
+    "DESCRIPTION": "무작위 포션 하나를 얻습니다. NL 소멸."
+  },
+  "rorgmod:Sadistic Nature": {
+    "NAME": "가학적 본성",
+    "DESCRIPTION": "적에게 부정적인 효과를 부여할 때마다 대상에게 피해를 !M! 줍니다."
+  },
+  "rorgmod:Defragment": {
+    "NAME": "조각모음",
+    "DESCRIPTION": "현재 영창되어 있는 전기 갯수 당 전기의 피해를 !M! 증가시킵니다."
+  },
+  "rorgmod:Biased Cognition": {
+    "NAME": "인지 편향",
+    "DESCRIPTION": "밀집을 !M! 얻습니다. NL 내 턴 시작 시 밀집을 1 잃습니다."
+  },
+  "rorgmod:Leap": {
+    "NAME": "도약",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 카드를 1 장 더 뽑습니다."
+  },
+  "rorgmod:Reboot": {
+    "NAME": "다시 시작",
+    "DESCRIPTION": "모든 카드를 뽑을 카드 더미에 섞어 넣습니다. NL 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "rorgmod:Auto-Shields": {
+    "NAME": "자동 방패",
+    "DESCRIPTION": "매 턴마다 현재 부여된 버프와 디버프의 갯수만큼 방어도를 !M! 얻습니다."
   }
 }

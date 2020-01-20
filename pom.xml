@@ -3,7 +3,7 @@
 
     <groupId>rorgmod</groupId>
     <artifactId>rorgmod</artifactId>
-    <version>v1.0.0</version>
+    <version>v1.1.0</version>
     <packaging>jar</packaging>
 
     <name>RorgMod</name>
@@ -58,7 +58,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/RorgMod.jar" tofile="../../../../../Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/RorgMod.jar"/>
+                                <copy file="target/RorgMod.jar" tofile="../../../../../Program Files (x86)/Steam/steamapps/common/SlayTheSpire/RorgMod/content/RorgMod.jar"/>
                             </target>
                         </configuration>
                         <goals>

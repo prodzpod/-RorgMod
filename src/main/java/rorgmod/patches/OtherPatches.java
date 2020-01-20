@@ -1,34 +1,45 @@
 package rorgmod.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import basemod.BaseMod;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.TransformCardInHandAction;
 import com.megacrit.cardcrawl.actions.unique.BurnIncreaseAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.Ironclad;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.exordium.Mushrooms;
+import com.megacrit.cardcrawl.helpers.PotionHelper;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.potions.GhostInAJar;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.relics.*;
+import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.unlock.cards.ironclad.ImmolateUnlock;
 import com.megacrit.cardcrawl.unlock.cards.silent.CatalystUnlock;
 import com.megacrit.cardcrawl.unlock.cards.silent.CorpseExplosionUnlock;
 import javassist.CannotCompileException;
+import javassist.CtBehavior;
 import javassist.NotFoundException;
 import javassist.expr.ExprEditor;
 import javassist.expr.Instanceof;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
+import org.apache.logging.log4j.Logger;
 import rorgmod.RorgMod;
 import rorgmod.powers.OverheatPower;
+import rorgmod.relics.AbstractRorgRelic;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class OtherPatches {
@@ -91,56 +102,25 @@ public class OtherPatches {
     }
 
     @SpirePatch(
-            clz= ImmolateUnlock.class,
-            method= SpirePatch.CONSTRUCTOR
+            clz= AbstractOrb.class,
+            method= "applyFocus"
     )
-    public static class ImmolatePatch {
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("getCard")) {
-                        RorgMod.logger.info("Fixing ImmolateUnlock");
-                        m.replace("{ $_ = com.megacrit.cardcrawl.helpers.CardLibrary.getCard(\"rorgmod:Immolate\"); }");
-                    }
-                }
-            };
-        }
-    }
+    public static class DefragPatch {
 
-    @SpirePatch(
-            clz= CatalystUnlock.class,
-            method= SpirePatch.CONSTRUCTOR
-    )
-    public static class CatalystPatch {
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("getCard")) {
-                        RorgMod.logger.info("Fixing CatalystUnlock");
-                        m.replace("{ $_ = com.megacrit.cardcrawl.helpers.CardLibrary.getCard(\"rorgmod:Catalyst\"); }");
-                    }
+        @SpirePostfixPatch
+        public static void applyFocus(AbstractOrb __instance) {
+            RorgMod.logger.info("Patching reworked defrag");
+            AbstractPower power = AbstractDungeon.player.getPower("rorgmod:Defragment");
+            if (power != null && __instance instanceof Lightning) {
+                int lightningAmount = 0;
+                Iterator var1 = AbstractDungeon.player.orbs.iterator();
+                while (var1.hasNext()) {
+                    AbstractOrb orb = (AbstractOrb) var1.next();
+                    if (orb instanceof Lightning) lightningAmount++;
                 }
-            };
-        }
-    }
-
-    @SpirePatch(
-            clz= CorpseExplosionUnlock.class,
-            method= SpirePatch.CONSTRUCTOR
-    )
-    public static class CorpseExplosionPatch {
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("getCard")) {
-                        RorgMod.logger.info("Fixing CorpseExplosionUnlock");
-                        m.replace("{ $_ = new rorgmod.cards.CorpseExplosion(); }");
-                    }
-                }
-            };
+                __instance.passiveAmount += power.amount * lightningAmount;
+                __instance.evokeAmount   += power.amount * lightningAmount;
+            }
         }
     }
 }

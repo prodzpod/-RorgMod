@@ -49,8 +49,8 @@
   "rorgmod:Overheat": {
     "NAME": "과열",
     "DESCRIPTIONS": [
-      "전기를 영창할 때 마다 취약을 부여합니다. 남은 턴 수: #b",
-      ""
+      "이번 턴, 전기를 영창할 때 마다 #y취약을 #b",
+      " 번 부여합니다."
     ]
   },
   "rorgmod:Go for the Eyes": {
@@ -71,6 +71,20 @@
     "DESCRIPTIONS": [
       "냉기를 발현할 때 마다 암흑을 #b",
       " 번 영창합니다."
+    ]
+  },
+  "rorgmod:Defragment": {
+    "NAME": "조각모음",
+    "DESCRIPTIONS": [
+      "현재 영창되어 있는 전기 갯수 당 전기의 피해를 #b",
+      " 증가시킵니다."
+    ]
+  },
+  "rorgmod:Auto-Shields": {
+    "NAME": "자동 방패",
+    "DESCRIPTIONS": [
+      "매 턴마다 현재 부여된 버프와 디버프의 갯수만큼 방어도를 #b",
+      " 얻습니다."
     ]
   }
 }

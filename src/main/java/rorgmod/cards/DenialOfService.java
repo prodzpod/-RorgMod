@@ -9,7 +9,7 @@ public class DenialOfService extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Denial of Service";
 
     public DenialOfService() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setAttack(10, 3);
     }
 

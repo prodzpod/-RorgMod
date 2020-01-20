@@ -62,7 +62,7 @@ public class WheelGremlin extends AbstractMonster {
     public void takeTurn() {
         switch(this.nextMove) {
             case 1:
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                for (int i = 0; i < AbstractDungeon.actNum; i++) AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 break;
             case 2:
                 AbstractDungeon.actionManager.addToBottom(new FastShakeAction(this, 0.5F, 0.2F));
@@ -93,7 +93,7 @@ public class WheelGremlin extends AbstractMonster {
         if (this.lastTwoMoves((byte)1)) {
             this.setMove(MOVES[1], (byte)2, Intent.DEBUFF);
         } else {
-            this.setMove(MOVES[0], (byte)1, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base);
+            this.setMove(MOVES[0], (byte)1, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base, AbstractDungeon.actNum, true);
         }
     }
 }
