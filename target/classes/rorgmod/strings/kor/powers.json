@@ -1,0 +1,69 @@
+{
+  "rorgmod:Abstract Rorg Power": {
+    "NAME": "에러 효과",
+    "DESCRIPTIONS": [
+      "Rorg모드가 잘못되었습니다! STS 디스코드의 @prod#0339에게 보고해주세요."
+    ]
+  },
+  "rorgmod:Loose Screws": {
+    "NAME": "헐거운 나사",
+    "DESCRIPTIONS": [
+      "#y공격 카드를 낼 때마다 구체 슬롯을 1개 얻습니다. 남은 턴 수: #b",
+      ""
+    ]
+  },
+  "rorgmod:No": {
+    "NAME": "아니.",
+    "DESCRIPTIONS": [
+      "미안, 불가침은 비활성화되었습니다."
+    ]
+  },
+  "rorgmod:Overcurrent": {
+    "NAME": "과전류",
+    "DESCRIPTIONS": [
+      "구체 슬롯을 3개 잃습니다. 남은 턴 수: #b",
+      ""
+    ]
+  },
+  "rorgmod:Overcurrent+": {
+    "NAME": "과전류+",
+    "DESCRIPTIONS": [
+      "구체를 3개 발현 합니다. 남은 턴 수: #b",
+      ""
+    ]
+  },
+  "rorgmod:Centralize": {
+    "NAME": "Centralize",
+    "DESCRIPTIONS": [
+      "다음에 발현하는 구체는 #b",
+      " 번 더 발현됩니다."
+    ]
+  },
+  "rorgmod:Storm": {
+    "NAME": "폭풍",
+    "DESCRIPTIONS": [
+      "전기를 영창할 때 마다 일시적 힘을 #b",
+      " 얻습니다."
+    ]
+  },
+  "rorgmod:Overheat": {
+    "NAME": "과열",
+    "DESCRIPTIONS": [
+      "전기를 영창할 때 마다 취약을 부여합니다. 남은 턴 수: #b",
+      ""
+    ]
+  },
+  "rorgmod:Go for the Eyes": {
+    "NAME": "눈 할퀴기",
+    "DESCRIPTIONS": [
+      "적에게 디버프를 부여할 때 마다 #b",
+      " 번 더 부여합니다."
+    ]
+  },
+  "rorgmod:Shadowmeld": {
+    "NAME": "그림자융융",
+    "DESCRIPTIONS": [
+      "매 턴마다 암흑을 1 번 영창합니다. 구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동시킵니다."
+    ]
+  }
+}

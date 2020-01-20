@@ -1,0 +1,81 @@
+{
+  "rorgmod:Abstract Rorg Relic": {
+    "NAME": "오류 유물",
+    "FLAVOR": "Rorg모드가 잘못되었습니다! STS 디스코드의 @prod#0339에게 보고해주세요.",
+    "DESCRIPTIONS": [
+      "Rorg모드가 잘못되었습니다! STS 디스코드의 @prod#0339에게 보고해주세요."
+    ]
+  },
+  "rorgmod:Loose Gear": {
+    "NAME": "헐거운 톱니바퀴",
+    "FLAVOR": "무력은 기계를 손상시킬 수 있습니다. 효과적인 방법이지만.",
+    "DESCRIPTIONS": [
+      "전투마다 한 번 체력을 잃을 때마다, 구체 슬롯을 #b2 개 얻습니다."
+    ]
+  },
+  "rorgmod:Glossy Coat": {
+    "NAME": "광택 코트",
+    "FLAVOR": "\"좋은 효과를 위해 코트 하나를 덧씌우세요!\" -랜위드",
+    "DESCRIPTIONS": [
+      "적이 #y약화 또는 #y취약 을 부여할 때, 같은 디버프를 모든 적에게 부여합니다."
+    ]
+  },
+  "rorgmod:Coolant Medium": {
+    "NAME": "냉각제",
+    "FLAVOR": "\"기계를 과열시키지 마세요!\" -랜위드",
+    "DESCRIPTIONS": [
+      "이전 휴식 장소에서 휴식을 취했다면, 매 전투 시작시 구체 슬롯을 #b4 개 얻습니다."
+    ]
+  },
+  "rorgmod:Data Disk": {
+    "NAME": "데이터 디스크",
+    "FLAVOR": "이 디스크는 슬라임와 강아지의 예전 정보를 담고 있습니다.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 #y밀집을 #b",
+      " 얻습니다."
+    ]
+  },
+  "rorgmod:Decaying Core": {
+    "NAME": "부식된 핵",
+    "FLAVOR": "\"너의 시간은 짧다, 절정을 찾아라\" -무명",
+    "DESCRIPTIONS": [
+      "막히지 않은 #y피해를 입을 때, #y취약을 #b1 번 부여합니다."
+    ]
+  },
+  "rorgmod:Crooked Motherboard": {
+    "NAME": "휘어진 마더보드",
+    "FLAVOR": "당신의 프로그램이 스스로 고쳐지고 전선이 재배치됩니다; 새로운 당신의 시작.",
+    "DESCRIPTIONS": [
+      "카드에 의해 디버프를 받을 경우, #y인공물을 #b1 번 부여합니다."
+    ]
+  },
+  "rorgmod:Liquid Mercury": {
+    "NAME": "액체 수은",
+    "FLAVOR": "당신의 독한 정맥 사이로 전기가 흐릅니다.",
+    "DESCRIPTIONS": [
+      "#y플라즈마가 영창되어 있을 경우, 모든 적에게 #y취약을 #b1 번 부여합니다."
+    ]
+  },
+  "rorgmod:Mummified Hand": {
+    "NAME": "미라의 손",
+    "FLAVOR": "당신의 맥박이 빨라질 때 특히 자주 꿈틀거립니다.",
+    "DESCRIPTIONS": [
+      "#y파워 카드를 사용할 때마다 무작위 카드 1장의 비용이 이번 턴 동안 #b0 이 됩니다."
+    ]
+  },
+  "rorgmod:Empty Cage": {
+    "NAME": "빈 새장",
+    "FLAVOR": "\"당신이 숭배하는 게 우리에 가둬져 있다는 건 드문 일이죠.\" - 랜위드",
+    "DESCRIPTIONS": [
+      "획득 시 덱에서 #b3 장의 카드를 제거합니다.",
+      "제거할 3장의 카드를 선택하세요."
+    ]
+  },
+  "rorgmod:Crimson Lotus": {
+    "NAME": "검붉은 연꽃",
+    "FLAVOR": "가장 희귀한 색의 연꽃, 옛 문헌에 따르면, 가장 어려운 시간에만 피어난다고 합니다.",
+    "DESCRIPTIONS": [
+      "#y진노할 경우, [E] 를 얻습니다."
+    ]
+  }
+}

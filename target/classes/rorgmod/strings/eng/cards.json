@@ -1,0 +1,194 @@
+  {
+  "rorgmod:Abstract Rorg Card": {
+    "NAME": "ERROR CARD",
+    "DESCRIPTION": "RorgMod went wrong! Please tell @prod#0339 at STS Discord.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Loose Screws": {
+    "NAME": "Loose Screws",
+    "DESCRIPTION": "Deal !D! damage. Whenever you play an Attack this turn, gain 1 Orb slot. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Zing-Zap": {
+    "NAME": "Zing-Zap",
+    "DESCRIPTION": "Gain !B! Block for each Lightning you have. Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have ",
+      " Lightning).",
+      " Lightnings)."
+    ]
+  },
+  "rorgmod:Fusion": {
+    "NAME": "Fusion",
+    "DESCRIPTION": "Channel 1 Plasma.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb Slot. Channel 1 Plasma."
+  },
+  "rorgmod:Ventilation Error": {
+    "NAME": "Ventilation Error",
+    "DESCRIPTION": "Evoke your next Orb twice. Apply !M! Weak to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:SQL Injection": {
+    "NAME": "SQL Injection",
+    "DESCRIPTION": "Deal !D! damage. If you have channeled 2 or more Orbs this turn, apply !M! Vulnerable."
+  },
+  "rorgmod:Overcurrent": {
+    "NAME": "Overcurrent",
+    "DESCRIPTION": "Gain !M! Orb slots. After 3 turns, Lose !M! Orb slots.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Orb slots. After 3 turns, Evoke your first 3 Orbs and Lose !M! Orb slots."
+  },
+  "rorgmod:Refrigerate": {
+    "NAME": "Refrigerate",
+    "DESCRIPTION": "Apply !M! Weak. Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Antivirus": {
+    "NAME": "Antivirus",
+    "DESCRIPTION": "Gain !B! Block for each enemy in combat.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:LRU Cache": {
+    "NAME": "LRU Cache",
+    "DESCRIPTION": "Deal !D! damage. Cycle orbs clockwise 1 slot. Trigger the passive of your next orb !M! times.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Critical Section": {
+    "NAME": "Critical Section",
+    "DESCRIPTION": "Apply !M! Lock-On and Vulnerable to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Fragmentation": {
+    "NAME": "Fragmentation",
+    "DESCRIPTION": "Deal !D! damage twice to ALL enemies. Lose 1 Orb slot.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Propelled Flight": {
+    "NAME": "Propelled Flight",
+    "DESCRIPTION": "Gain !B! Block twice. If you have 2 or more Dexterity, gain !B! Block during your next turn.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Pusher Props": {
+    "NAME": "Pusher Props",
+    "DESCRIPTION": "Deal !D! damage twice. If you have 2 or more Strength, apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Malware": {
+    "NAME": "Malware",
+    "DESCRIPTION": "Evoke your rightmost Dark. It hits ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Evoke your rightmost Dark. It hits ALL enemies. Channel 1 Dark."
+  },
+  "rorgmod:Radar Scan": {
+    "NAME": "Radar Scan",
+    "DESCRIPTION": "Apply !M! Lock-On to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Steady Aim": {
+    "NAME": "Steady Aim",
+    "DESCRIPTION": "Gain !B! block twice. Apply 1 Lock-On !M! times.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Centralize": {
+    "NAME": "Centralize",
+    "DESCRIPTION": "The next Orb you would Evoke is Evoked an additional !M! times.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Storm": {
+    "NAME": "Storm",
+    "DESCRIPTION": "Every time you channel Lightning, gain 1 temporary Strength.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Overheat": {
+    "NAME": "Overheat",
+    "DESCRIPTION": "Every time you Evoke Lightning this turn, apply 1 Vulnerable. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Go for the Eyes": {
+    "NAME": "Go for the Eyes",
+    "DESCRIPTION": "Whenever you would apply any Debuff to an enemy, apply !M! more.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Hot Sockets": {
+    "NAME": "Hot Sockets",
+    "DESCRIPTION": "Evoke your next orb. Deal !D! damage to a random enemy for each empty orb slot.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have ",
+      " Empty Orb slot).",
+      " Empty Orb slots)."
+    ]
+  },
+  "rorgmod:Metal Coating": {
+    "NAME": "Metal Coating",
+    "DESCRIPTION": "Gain !B! block. Gain !M! Frail.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Shadowmeld": {
+    "NAME": "Shadowmeld",
+    "DESCRIPTION": "Channel 1 Dark at the start of your turn. Whenever you channel an Orb, trigger the passive ability of all Dark orbs.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Biogeneration": {
+    "NAME": "Biogeneration",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. Channel 1 Plasma. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Volatility": {
+    "NAME": "Volatility",
+    "DESCRIPTION": "The first time you Evoke Plasma each turn, draw !M! cards. Channel 1 Plasma.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Thunder Strike": {
+    "NAME": "Thunder Strike",
+    "DESCRIPTION": "Deal !D! damage to a random enemy for each Lightning Channeled this combat.",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " (Channeled !M! Lightning.)"
+    ]
+  },
+  "rorgmod:Neutron Shower": {
+    "NAME": "Neutron Shower",
+    "DESCRIPTION": "Randomize all of your channeled orbs. Trigger the passive of all orbs. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Randomize all of your channeled orbs. Trigger the passive of all orbs."
+  },
+  "rorgmod:Chaos": {
+    "NAME": "Chaos",
+    "DESCRIPTION": "Channel 2 random Orbs. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel 2 random Orbs."
+  },
+  "rorgmod:Bad Sector": {
+    "NAME": "πBad Sector",
+    "DESCRIPTION": "Channel 2 Lightning, Shuffle a *Burn into your draw pile.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Denial of Service": {
+    "NAME": "Denial of Service",
+    "DESCRIPTION": "Deal !D! damage. If the enemy intends to attack, deal !D! damage again.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Searing Blow": {
+    "NAME": "Searing Blow",
+    "DESCRIPTION": "Deal !D! damage. NL Can be Upgraded any number of times.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Immolate": {
+    "NAME": "Immolate",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Add a *Burn into your draw pile.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Hexaburn": {
+    "NAME": "Hexaburn",
+    "DESCRIPTION": "Unplayable. NL At the end of your turn, take !M! damage.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Catalyst": {
+    "NAME": "Catalyst",
+    "DESCRIPTION": "Double the enemy's Poison. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "rorgmod:Corpse Explosion": {
+    "NAME": "Corpse Explosion",
+    "DESCRIPTION": "CE is Deprecated.",
+    "UPGRADE_DESCRIPTION": ""
+  }
+}
