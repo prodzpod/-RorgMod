@@ -83,15 +83,15 @@
   "rorgmod:Defragment": {
     "NAME": "Defragment",
     "DESCRIPTIONS": [
-      "Lightnings deal #b",
+      "Lightning deals #b",
       " more damage for each Lightning you have."
     ]
   },
   "rorgmod:Auto-Shields": {
     "NAME": "Auto-Shields",
     "DESCRIPTIONS": [
-      "Each time you evokes Frost, Channel #b",
-      " Dark."
+      "Gain #b",
+      " Block for every Buff and Debuff you have."
     ]
   }
 }

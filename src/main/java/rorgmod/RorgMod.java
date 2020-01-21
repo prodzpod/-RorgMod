@@ -220,6 +220,7 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         BaseMod.removeCard("Scrape", AbstractCard.CardColor.BLUE);
         BaseMod.removeCard("Aggregate", AbstractCard.CardColor.BLUE);
         BaseMod.removeCard("Fusion", AbstractCard.CardColor.BLUE);
+        BaseMod.removeCard("Go for the Eyes", AbstractCard.CardColor.BLUE);
         BaseMod.removeCard("Storm", AbstractCard.CardColor.BLUE);
         BaseMod.removeCard("Thunder Strike", AbstractCard.CardColor.BLUE);
         BaseMod.removeCard("Chaos", AbstractCard.CardColor.BLUE);

@@ -171,7 +171,7 @@
   },
   "rorgmod:Defragment": {
     "NAME": "Defragment",
-    "DESCRIPTION": "Lightnings deal !M! more damage for each Lightning you have."
+    "DESCRIPTION": "Lightning deals !M! more damage for each Lightning you have."
   },
   "rorgmod:Biased Cognition": {
     "NAME": "Biased Cognition",
@@ -187,6 +187,6 @@
   },
   "rorgmod:Auto-Shields": {
     "NAME": "Auto-Shields",
-    "DESCRIPTION": "At the end of your turn, gain !M! Block for each Buffs and Debuffs you have."
+    "DESCRIPTION": "Gain !M! Block for every Buff and Debuff you have."
   }
 }
