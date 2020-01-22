@@ -93,7 +93,7 @@
     "NAME": "핫 소켓",
     "DESCRIPTION": "가장 오른 쪽 구체를 발현합니다. 무작위 적에게 빈 구체 슬롯 갯수만큼 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL (피해를 !M! 줍니다)."
+      " NL (피해를 !D!x!M! 줍니다)."
     ]
   },
   "rorgmod:Metal Coating": {

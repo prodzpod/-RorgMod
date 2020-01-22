@@ -15,16 +15,19 @@ public class HotSockets extends AbstractRorgCard {
     public HotSockets() {
         super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
         setAttack(4,1);
+        applyPowers();
     }
 
     public void applyPowers() {
         super.applyPowers();
-        baseMagicNumber = damage;
+        if (AbstractDungeon.player.filledOrbCount() != 0) baseMagicNumber = 1;
+        else baseMagicNumber = 0;
         for(int i = 0; i < AbstractDungeon.player.orbs.size(); ++i) {
             if (AbstractDungeon.player.orbs.get(i) instanceof EmptyOrbSlot) {
-                baseMagicNumber += damage;
+                baseMagicNumber++;
             }
         }
+        magicNumber = baseMagicNumber;
 
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
@@ -33,10 +36,8 @@ public class HotSockets extends AbstractRorgCard {
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster) {
         evokeOrb(1, 1);
-        for(int i = 0; i < AbstractDungeon.player.orbs.size(); ++i) {
-            if (AbstractDungeon.player.orbs.get(i) instanceof EmptyOrbSlot) {
-                dealRandomDamage(damage, AbstractGameAction.AttackEffect.LIGHTNING);
-            }
+        for (int i = 0; i < magicNumber; ++i) {
+            dealRandomDamage(damage, AbstractGameAction.AttackEffect.LIGHTNING);
         }
     }
 
