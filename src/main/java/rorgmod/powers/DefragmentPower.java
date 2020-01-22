@@ -15,6 +15,16 @@ public class DefragmentPower extends AbstractRorgPower {
     }
 
     @Override
+    public void onChannel(AbstractOrb orb) {
+        if (orb instanceof Lightning) this.flash();
+    }
+
+    @Override
+    public void onEvokeOrb(AbstractOrb orb) {
+        if (orb instanceof Lightning) this.flash();
+    }
+
+    @Override
     public void update(int slot) {
         super.update(slot);
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {

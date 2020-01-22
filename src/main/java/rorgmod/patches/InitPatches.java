@@ -35,6 +35,8 @@ public class InitPatches {
         public static void initializeCardPools(AbstractDungeon __instance) {
             AbstractCard card;
             for (String rawCard : RorgMod.cardsToRemove) {
+                RorgMod.logger.info("removing card");
+                RorgMod.logger.info(rawCard);
                 card = CardLibrary.getCard(rawCard);
                 if (card.color == AbstractCard.CardColor.COLORLESS)
                     AbstractDungeon.colorlessCardPool.removeCard(rawCard);
@@ -142,9 +144,15 @@ public class InitPatches {
             clz= PotionHelper.class,
             method= "getPotions"
     )
-    public static class RemoveGhostInAJar {
-        public static ArrayList<String> PostFix(ArrayList<String> __result, PotionHelper __instance, AbstractPlayer.PlayerClass c, boolean getAll) {
-            for (String potion : RorgMod.potionToRemove) if (__result.contains(potion)) __result.remove(potion);
+    public static class RemovePotions {
+        @SpirePostfixPatch
+        public static ArrayList<String> RemovePotions(ArrayList<String> __result, AbstractPlayer.PlayerClass c, boolean getAll) {
+            for (String potion : RorgMod.potionToRemove)
+                if (__result.contains(potion)) {
+                    RorgMod.logger.info("removing potion");
+                    RorgMod.logger.info(potion);
+                    __result.remove(potion);
+                }
             return __result;
         }
     }
@@ -163,7 +171,11 @@ public class InitPatches {
         )
         public static void Insert(ArrayList<String> tmp) {
             for (String event : RorgMod.eventsToRemove)
-                if (tmp.contains(event)) tmp.remove(event);
+                if (tmp.contains(event)) {
+                    RorgMod.logger.info("removing event");
+                    RorgMod.logger.info(event);
+                    tmp.remove(event);
+                }
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -187,7 +199,11 @@ public class InitPatches {
         )
         public static void Insert(ArrayList<String> tmp) {
             for (String event : RorgMod.eventsToRemove)
-                if (tmp.contains(event)) tmp.remove(event);
+                if (tmp.contains(event)) {
+                    RorgMod.logger.info("removing shared event");
+                    RorgMod.logger.info(event);
+                    tmp.remove(event);
+                }
         }
 
         private static class Locator extends SpireInsertLocator {

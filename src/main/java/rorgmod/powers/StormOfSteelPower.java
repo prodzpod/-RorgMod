@@ -15,6 +15,7 @@ public class StormOfSteelPower extends AbstractRorgPower {
     @Override
     public void onDiscardCard() {
         AbstractCard shiv = new Shiv();
+        this.flash();
         addToBot(new MakeTempCardInHandAction(shiv));
     }
 

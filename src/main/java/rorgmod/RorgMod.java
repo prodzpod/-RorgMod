@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.Reboot;
 import com.megacrit.cardcrawl.cards.colorless.Apparition;
+import com.megacrit.cardcrawl.cards.colorless.Discovery;
 import com.megacrit.cardcrawl.cards.green.Alchemize;
 import com.megacrit.cardcrawl.cards.green.CorpseExplosion;
 import com.megacrit.cardcrawl.cards.purple.Blasphemy;
@@ -128,7 +129,8 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
             new CardChanges(Reboot.ID, -1, null, AbstractCard.CardRarity.UNCOMMON),
             new CardChanges(Alchemize.ID, -1, AbstractCard.CardColor.COLORLESS, null),
             new CardChanges(SadisticNature.ID, -1, AbstractCard.CardColor.GREEN, null),
-            new CardChanges(Envenom.ID, 1, null, null)
+            new CardChanges(Envenom.ID, 1, null, null),
+            new CardChanges(Discovery.ID, -1, null, AbstractCard.CardRarity.RARE)
     };
 
     public static RelicChanges relicsToChange[] = {

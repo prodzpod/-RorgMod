@@ -10,8 +10,9 @@ public class LooseScrews extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Loose Screws";
 
     public LooseScrews() {
-        super("rorgmod:Loose Screws", DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF_AND_ENEMY);
+        super(CARD_ID, "rorgmod/cards/loose_screws.png", 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF_AND_ENEMY);
         setAttack(12, 4);
+        setExhaust();
     }
 
     @Override

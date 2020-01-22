@@ -1,10 +1,12 @@
 package rorgmod.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import rorgmod.actions.ShortcircuitAction;
 
 public class HotSockets extends AbstractRorgCard {
 
@@ -31,7 +33,11 @@ public class HotSockets extends AbstractRorgCard {
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster) {
         evokeOrb(1, 1);
-        this.addToBot(new ShortcircuitAction(this.damage));
+        for(int i = 0; i < AbstractDungeon.player.orbs.size(); ++i) {
+            if (AbstractDungeon.player.orbs.get(i) instanceof EmptyOrbSlot) {
+                dealRandomDamage(damage, AbstractGameAction.AttackEffect.LIGHTNING);
+            }
+        }
     }
 
     @Override

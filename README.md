@@ -211,4 +211,7 @@ Rebalance/Rework mod for Slay the Spire.
 * **Forgotten Altar** (Reworked Version coming soon)
 * **Secret Portal**
 
+### Console Command
+* **reward**: Gives you a random reward. pretty buggy rn.
+
 loomse scroomse

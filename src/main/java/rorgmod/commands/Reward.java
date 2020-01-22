@@ -3,20 +3,27 @@ package rorgmod.commands;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.Duplicator;
+import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import rorgmod.RorgMod;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Reward extends ConsoleCommand {
     public Reward() {
-        maxExtraTokens = 2; // args1 = relic / card / potion
-        minExtraTokens = 1; // args2 = pool name (common, uncommon, rare, boss, shop) / (normal, elite, boss) / (common, uncommon, rare) // arg3 = amount in int
+        maxExtraTokens = 3; // args1 = relic / card / potion
+        minExtraTokens = 2; // args2 = pool name (common, uncommon, rare, boss, shop) / (normal, elite, boss) / (common, uncommon, rare) // arg3 = amount in int
         requiresPlayer = false; //if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
     }
 
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
+        depth = tokens.length;
+//        RorgMod.logger.info("COMMAND DEBUG");
+//        RorgMod.logger.info(String.join(", ", tokens));
+//        RorgMod.logger.info(depth);
         ArrayList<String> result = new ArrayList<>();
 
         String args1[] = { "relic", "card", "potion" };
@@ -26,10 +33,10 @@ public class Reward extends ConsoleCommand {
         String args3c[] = { "1", "2", "3", "4", "5" };
 
         switch (depth) {
-            case 0:
+            case 2:
                 for (String s : args1) result.add(s);
                 break;
-            case 1:
+            case 3:
                 switch (tokens[1]) {
                     case "relic":
                         for (String s : args2a) result.add(s);
@@ -42,7 +49,7 @@ public class Reward extends ConsoleCommand {
                         break;
                 }
                 break;
-            case 2:
+            case 4:
                 switch (tokens[1]) {
                     case "relic":
                         for (String s : args3) result.add(s);
@@ -55,7 +62,7 @@ public class Reward extends ConsoleCommand {
                         break;
                 }
                 break;
-            case 3:
+            case 5:
                 complete = true;
                 break;
         }
@@ -73,50 +80,63 @@ public class Reward extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
-        String pool = tokens[2];
-        int amount = depth == 3 ? Integer.parseInt(tokens[3]) : 1;
-        AbstractDungeon.getCurrRoom().rewards.clear();
-        switch (tokens[1]) {
-            case "relic":
-                AbstractRelic.RelicTier tier = AbstractRelic.RelicTier.DEPRECATED;
-                switch (pool) {
-                    case "common":
-                        tier = AbstractRelic.RelicTier.COMMON;
-                        break;
-                    case "uncommon":
-                        tier = AbstractRelic.RelicTier.UNCOMMON;
-                        break;
-                    case "rare":
-                        tier = AbstractRelic.RelicTier.RARE;
-                        break;
-                    case "boss":
-                        tier = AbstractRelic.RelicTier.BOSS;
-                        break;
-                    case "shop":
-                        tier = AbstractRelic.RelicTier.SHOP;
-                        break;
-                }
-                for (int i = 0; i < amount; i++) AbstractDungeon.getCurrRoom().addRelicToRewards(tier);
-                break;
-            case "card":
-                for (int i = 0; i < Integer.parseInt(pool); i++) AbstractDungeon.getCurrRoom().addCardToRewards();
-                break;
-            case "potion":
-                AbstractPotion.PotionRarity tier2 = AbstractPotion.PotionRarity.COMMON;
-                switch (pool) {
-                    case "common":
-                        tier2 = AbstractPotion.PotionRarity.COMMON;
-                        break;
-                    case "uncommon":
-                        tier2 = AbstractPotion.PotionRarity.UNCOMMON;
-                        break;
-                    case "rare":
-                        tier2 = AbstractPotion.PotionRarity.RARE;
-                        break;
-                }
-                for (int i = 0; i < Integer.parseInt(pool); i++) AbstractDungeon.getCurrRoom().addPotionToRewards(AbstractDungeon.returnRandomPotion(tier2, false));
-                break;
+        try {
+            String pool = tokens[2];
+            int amount;
+            try {
+                amount = Integer.parseInt(tokens[3]);
+            } catch (Exception e) {
+                amount = 1;
+            };
+            AbstractDungeon.getCurrRoom().rewards.clear();
+            switch (tokens[1]) {
+                case "relic":
+                    AbstractRelic.RelicTier tier = AbstractRelic.RelicTier.DEPRECATED;
+                    switch (pool) {
+                        case "common":
+                            tier = AbstractRelic.RelicTier.COMMON;
+                            break;
+                        case "uncommon":
+                            tier = AbstractRelic.RelicTier.UNCOMMON;
+                            break;
+                        case "rare":
+                            tier = AbstractRelic.RelicTier.RARE;
+                            break;
+                        case "boss":
+                            tier = AbstractRelic.RelicTier.BOSS;
+                            break;
+                        case "shop":
+                            tier = AbstractRelic.RelicTier.SHOP;
+                            break;
+                    }
+                    for (int i = 0; i < amount; i++) AbstractDungeon.getCurrRoom().addRelicToRewards(tier);
+                    break;
+                case "card":
+                    try {
+                        amount = Integer.parseInt(pool);
+                    } catch (Exception e) {}
+                    for (int i = 1; i < amount; i++) AbstractDungeon.getCurrRoom().addCardToRewards();
+                    break;
+                case "potion":
+                    AbstractPotion.PotionRarity tier2 = AbstractPotion.PotionRarity.COMMON;
+                    switch (pool) {
+                        case "common":
+                            tier2 = AbstractPotion.PotionRarity.COMMON;
+                            break;
+                        case "uncommon":
+                            tier2 = AbstractPotion.PotionRarity.UNCOMMON;
+                            break;
+                        case "rare":
+                            tier2 = AbstractPotion.PotionRarity.RARE;
+                            break;
+                    }
+                    for (int i = 0; i < amount; i++)
+                        AbstractDungeon.getCurrRoom().addPotionToRewards(AbstractDungeon.returnRandomPotion(tier2, false));
+                    break;
+            }
+            AbstractDungeon.combatRewardScreen.open();
+        } catch (Exception e) {
+            this.errorMsg();
         }
-        AbstractDungeon.combatRewardScreen.open();
     }
 }

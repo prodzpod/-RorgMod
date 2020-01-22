@@ -52,7 +52,7 @@
     "NAME": "Liquid Mercury",
     "FLAVOR": "Electricity flows through your toxic veins.",
     "DESCRIPTIONS": [
-      "At the start of your turn, apply #b1 #yVulnerable to all enemies if you have #yPlasma Channeled."
+      "At the start of your turn, apply #b1 #yVulnerable to ALL enemies if you have #yPlasma Channeled."
     ]
   },
   "rorgmod:Empty Cage": {

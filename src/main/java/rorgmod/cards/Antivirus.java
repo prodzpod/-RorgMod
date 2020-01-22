@@ -12,7 +12,7 @@ public class Antivirus extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Antivirus";
 
     public Antivirus() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF);
+        super(CARD_ID, "rorgmod/cards/anti_virus.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF);
         setBlock(7, 2);
     }
 

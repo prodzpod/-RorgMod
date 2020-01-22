@@ -93,7 +93,7 @@
     "NAME": "Hot Sockets",
     "DESCRIPTION": "Evoke your next orb. Deal !D! damage to a random enemy for each empty orb slot.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !M! Times)."
+      " NL (Deal !M! Damage)."
     ]
   },
   "rorgmod:Metal Coating": {
