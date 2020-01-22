@@ -9,10 +9,9 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class StormPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Storm";
-    private static final String IMG_PATH = "rorgmod/powers/storm";
 
     public StormPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, IMG_PATH, PowerType.BUFF, RorgPowerType.GENERIC, false, owner, amount);
+        super(POWER_ID, "rorgmod/powers/storm", PowerType.BUFF, RorgPowerType.GENERIC, false, owner, amount);
     }
 
     @Override
@@ -21,9 +20,5 @@ public class StormPower extends AbstractRorgPower {
             this.addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
             this.addToBot(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
         }
-    }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 }

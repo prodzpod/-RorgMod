@@ -19,16 +19,10 @@ public class LiquidMercury extends AbstractRorgRelic {
     @Override
     public void atTurnStart() {
         if (!AbstractDungeon.player.orbs.isEmpty()) {
-            Iterator var1 = AbstractDungeon.player.orbs.iterator();
-            AbstractOrb orb = null;
-            while (var1.hasNext()) {
-                orb = (AbstractOrb) var1.next();
+            for (AbstractOrb orb : AbstractDungeon.player.orbs) {
                 if (orb instanceof Plasma) {
                     this.flash();
-                    Iterator var2 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-                    AbstractMonster monster = null;
-                    while (var2.hasNext()) {
-                        monster = (AbstractMonster) var2.next();
+                    for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         this.addToBot(new ApplyPowerAction(monster, AbstractDungeon.player, new VulnerablePower(monster, 1, false)));
                     }
                     break;

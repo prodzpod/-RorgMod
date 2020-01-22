@@ -59,8 +59,4 @@ public class GoForTheEyesPower extends AbstractRorgPower {
             this.addToTop(new ApplyPowerAction(target, owner, newPower));
         }
     }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-    }
 }

@@ -20,8 +20,4 @@ public class BlackIcePower extends AbstractRorgPower {
             for (int i = 0; i < amount; i++) this.addToBot(new ChannelAction(new Dark()));
         }
     }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-    }
 }

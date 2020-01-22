@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Reward extends ConsoleCommand {
     public Reward() {
@@ -17,6 +18,7 @@ public class Reward extends ConsoleCommand {
 
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
         ArrayList<String> result = new ArrayList<>();
+
         String args1[] = { "relic", "card", "potion" };
         String args2a[] = { "common", "uncommon", "rare", "boss", "shop" };
         String args2c[] = { "common", "uncommon", "rare" };

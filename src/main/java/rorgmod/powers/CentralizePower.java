@@ -11,10 +11,6 @@ public class CentralizePower extends AbstractRorgPower {
         super(POWER_ID, DEFAULT_IMG_PATH, PowerType.BUFF, RorgPowerType.GENERIC, false, owner, amount);
     }
 
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-    }
-
     @Override
     public void onEvokeOrb(AbstractOrb orb) {
         for (int i = 0; i < amount; i++) {

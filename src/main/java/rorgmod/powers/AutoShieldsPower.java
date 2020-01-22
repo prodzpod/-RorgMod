@@ -16,10 +16,6 @@ public class AutoShieldsPower extends AbstractRorgPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        for (int i = 0; i < owner.powers.size(); i++) this.addToBot(new GainBlockAction(owner, amount));
-    }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        for (int i = 1; i < owner.powers.size(); i++) this.addToBot(new GainBlockAction(owner, amount));
     }
 }

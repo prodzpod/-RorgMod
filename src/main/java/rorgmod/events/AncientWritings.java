@@ -32,7 +32,7 @@ public class AncientWritings extends AbstractImageEvent {
     public AncientWritings() {
         super(NAME, DIALOG_1, "images/events/AncientWritings.jpg");
         this.screen = AncientWritings.CUR_SCREEN.INTRO;
-        this.cardsUpgraded = new ArrayList();
+        this.cardsUpgraded = new ArrayList<>();
         this.imageEventText.setDialogOption(OPTIONS[0]);
         this.imageEventText.setDialogOption(OPTIONS[1]);
     }

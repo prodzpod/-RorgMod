@@ -14,11 +14,6 @@ public class ShadowmeldPower extends AbstractRorgPower {
     }
 
     @Override
-    public void atStartOfTurn() {
-        this.addToBot(new ChannelAction(new Dark()));
-    }
-
-    @Override
     public void onChannel(AbstractOrb orb) {
         this.addToBot(new DarkImpulseAction());
     }

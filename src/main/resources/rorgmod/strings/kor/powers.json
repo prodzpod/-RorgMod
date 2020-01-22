@@ -26,7 +26,7 @@
     ]
   },
   "rorgmod:Overcurrent+": {
-    "NAME": "과전류+",
+    "NAME": "지연된 발현",
     "DESCRIPTIONS": [
       "구체를 3개 발현 합니다. 남은 턴 수: #b",
       ""
@@ -63,7 +63,7 @@
   "rorgmod:Shadowmeld": {
     "NAME": "그림자융융",
     "DESCRIPTIONS": [
-      "매 턴마다 암흑을 1 번 영창합니다. 구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동시킵니다."
+      "구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동시킵니다."
     ]
   },
   "rorgmod:Black Ice": {
@@ -85,6 +85,31 @@
     "DESCRIPTIONS": [
       "매 턴마다 현재 부여된 버프와 디버프의 갯수만큼 방어도를 #b",
       " 얻습니다."
+    ]
+  },
+  "rorgmod:Accuracy": {
+    "NAME": "정밀",
+    "DESCRIPTIONS": [
+      "#y비용이 #y0인 #y카드의 피해량이 #b",
+      " 증가합니다."
+    ]
+  },
+  "rorgmod:Phantasmal+": {
+    "NAME": "살인마 본능",
+    "DESCRIPTIONS": [
+      "다음 턴에 원하는 만큼 카드를 버리고 그 만큼 새로운 카드를 뽑습니다."
+    ]
+  },
+  "rorgmod:Storm of Steel": {
+    "NAME": "강철의 폭풍",
+    "DESCRIPTIONS": [
+      "카드를 버릴 때 마다 #y단도 를 얻습니다."
+    ]
+  },
+  "rorgmod:Storm of Steel+": {
+    "NAME": "강철의 폭풍",
+    "DESCRIPTIONS": [
+      "카드를 버릴 때 마다 #y단도+ 를 얻습니다."
     ]
   }
 }

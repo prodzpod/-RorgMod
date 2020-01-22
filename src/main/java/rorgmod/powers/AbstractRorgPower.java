@@ -67,6 +67,10 @@ public class AbstractRorgPower extends AbstractPower {
         this.canGoNegative = true;
     }
 
+    public void onDiscardCard() {
+        /** DO SOMETHING **/
+    }
+
     @Override
     public void stackPower(int stackAmount) {
         if (this.TYPE == RorgPowerType.NUMBERLESS) {
@@ -158,6 +162,10 @@ public class AbstractRorgPower extends AbstractPower {
                     break;
             }
         }
+    }
+
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     protected enum RorgPowerType {

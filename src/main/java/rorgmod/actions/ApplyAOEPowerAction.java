@@ -30,10 +30,8 @@ public class ApplyAOEPowerAction extends AbstractGameAction {
 
     public void update() {
         int stack = power.amount;
-        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
-        while(var3.hasNext()) {
-            AbstractMonster monster = (AbstractMonster)var3.next();
+        for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (monster.isDeadOrEscaped() || monster.halfDead) continue;
             Constructor construct = null;
             AbstractPower res = null;

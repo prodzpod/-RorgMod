@@ -19,14 +19,15 @@ public class VolatilityPower extends AbstractRorgPower {
     }
 
     @Override
+    public void atEndOfTurn(boolean isMonster) {
+        if (!isMonster) procced = true;
+    }
+
+    @Override
     public void onEvokeOrb(AbstractOrb orb) {
         if (!procced && orb instanceof Plasma) {
             procced = true;
             this.addToBot(new DrawCardAction(owner, amount));
         }
-    }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 }

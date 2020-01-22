@@ -1,4 +1,4 @@
-  {
+{
   "rorgmod:Abstract Rorg Card": {
     "NAME": "ERROR CARD",
     "DESCRIPTION": "RorgMod went wrong! Please tell @prod#0339 at STS Discord."
@@ -102,7 +102,7 @@
   },
   "rorgmod:Shadowmeld": {
     "NAME": "Shadowmeld",
-    "DESCRIPTION": "Channel 1 Dark at the start of your turn. Whenever you channel an Orb, trigger the passive ability of all Dark orbs."
+    "DESCRIPTION": "Whenever you channel an Orb, trigger the passive ability of all Dark orbs."
   },
   "rorgmod:Biogeneration": {
     "NAME": "Biogeneration",
@@ -129,8 +129,8 @@
     "DESCRIPTION": "Channel 2 random Orbs. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Channel 2 random Orbs."
   },
-  "rorgmod:Bad Sector": {
-    "NAME": "Bad Sector",
+  "rorgmod:Fuse Blower": {
+    "NAME": "Fuse Blower",
     "DESCRIPTION": "Channel 2 Lightning, Shuffle a *Burn into your draw pile."
   },
   "rorgmod:Denial of Service": {
@@ -161,14 +161,6 @@
     "NAME": "Black Ice",
     "DESCRIPTION": "Whenever you Evoke Frost, Channel 1 Dark."
   },
-  "rorgmod:Alchemize": {
-    "NAME": "Alchemize",
-    "DESCRIPTION": "Obtain a random potion. NL Exhaust."
-  },
-  "rorgmod:Sadistic Nature": {
-    "NAME": "Sadistic Nature",
-    "DESCRIPTION": "Whenever you apply a debuff to an enemy, they take !M! damage."
-  },
   "rorgmod:Defragment": {
     "NAME": "Defragment",
     "DESCRIPTION": "Lightning deals !M! more damage for each Lightning you have."
@@ -181,12 +173,48 @@
     "NAME": "Leap",
     "DESCRIPTION": "Gain !B! Block. NL Next turn, draw 1 additional card."
   },
-  "rorgmod:Reboot": {
-    "NAME": "Reboot",
-    "DESCRIPTION": "Shuffle ALL your cards into your draw pile. NL Draw !M! cards. NL Exhaust."
-  },
   "rorgmod:Auto-Shields": {
     "NAME": "Auto-Shields",
     "DESCRIPTION": "Gain !M! Block for every Buff and Debuff you have."
+  },
+  "rorgmod:Accuracy": {
+    "NAME": "Accuracy",
+    "DESCRIPTION": "ALL 0 cost Attacks deal !M! additional damage."
+  },
+  "rorgmod:Claw": {
+    "NAME": "Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Claw cards by !M! this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL 0 cost Attacks by !M! this combat."
+  },
+  "rorgmod:Follow-Up": {
+    "NAME": "Follow-Up",
+    "DESCRIPTION": "Deal !D! damage. NL If the last card played this combat was an Attack, gain [W] and draw 1 card."
+  },
+  "rorgmod:Phantasmal Killer": {
+    "NAME": "Phantasmal Killer",
+    "DESCRIPTION": "Next turn, your Attacks deal double damage.",
+    "UPGRADE_DESCRIPTION": "At the start of your next turn, Discard any number of cards from your hand, then draw that many cards. Next turn, your Attacks deal double damage."
+  },
+  "rorgmod:Reflex": {
+    "NAME": "Reflex",
+    "DESCRIPTION": "Unplayable. NL If this card is discarded from your hand, draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL If this card is discarded from your hand, draw !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "rorgmod:Storm of Steel": {
+    "NAME": "Storm of Steel",
+    "DESCRIPTION": "Whenever you Discard a card, Add 1 *Shiv into your hand.",
+    "UPGRADE_DESCRIPTION": "Discard your hand. Add 1 *Shiv+ into your hand."
+  },
+  "rorgmod:Prepared": {
+    "NAME": "Prepared",
+    "DESCRIPTION": "Draw 2 cards. NL Discard !M! card.",
+    "UPGRADE_DESCRIPTION": "Draw 3 cards. NL Discard !M! cards."
+  },
+  "rorgmod:Slice": {
+    "NAME": "Slice",
+    "DESCRIPTION": "Deal !D! damage."
   }
 }

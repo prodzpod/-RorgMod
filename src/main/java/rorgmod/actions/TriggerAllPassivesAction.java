@@ -13,10 +13,7 @@ public class TriggerAllPassivesAction extends AbstractGameAction {
 
     public void update() {
         if (!AbstractDungeon.player.orbs.isEmpty()) {
-            Iterator var1 = AbstractDungeon.player.orbs.iterator();
-
-            while(var1.hasNext()) {
-                AbstractOrb o = (AbstractOrb)var1.next();
+            for (AbstractOrb o : AbstractDungeon.player.orbs) {
                 o.onStartOfTurn();
                 o.onEndOfTurn();
             }

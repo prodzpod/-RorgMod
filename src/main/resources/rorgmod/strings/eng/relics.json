@@ -55,13 +55,6 @@
       "At the start of your turn, apply #b1 #yVulnerable to all enemies if you have #yPlasma Channeled."
     ]
   },
-  "rorgmod:Mummified Hand": {
-    "NAME": "Mummified Hand",
-    "FLAVOR": "Frequently twitches, especially when your pulse is high.",
-    "DESCRIPTIONS": [
-      "Whenever you play a #yPower card, a random card in your hand costs #b0 that turn."
-    ]
-  },
   "rorgmod:Empty Cage": {
     "NAME": "Empty Cage",
     "FLAVOR": "\"How unusual to cage that which you worship.\" - Ranwid",

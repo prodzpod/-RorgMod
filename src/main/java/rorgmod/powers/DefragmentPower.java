@@ -17,15 +17,8 @@ public class DefragmentPower extends AbstractRorgPower {
     @Override
     public void update(int slot) {
         super.update(slot);
-        Iterator var1 = AbstractDungeon.player.orbs.iterator();
-        AbstractOrb orb = null;
-        while (var1.hasNext()) {
-            orb = (AbstractOrb) var1.next();
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
             if (orb instanceof Lightning) orb.updateDescription();
         }
-    }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 }

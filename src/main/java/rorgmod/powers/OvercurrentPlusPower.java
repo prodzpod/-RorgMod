@@ -11,10 +11,6 @@ public class OvercurrentPlusPower extends AbstractRorgPower {
         super(POWER_ID, DEFAULT_IMG_PATH, PowerType.DEBUFF, RorgPowerType.TICKDOWN_START, true, owner, amount);
     }
 
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-    }
-
     @Override
     public void endOfTurn() {
         if (amount == 1) {

@@ -1,11 +1,15 @@
 package rorgmod.patches;
 
 import basemod.BaseMod;
+import com.badlogic.gdx.Game;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.TransformCardInHandAction;
 import com.megacrit.cardcrawl.actions.unique.BurnIncreaseAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.Ironclad;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -22,6 +26,7 @@ import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.relics.*;
+import com.megacrit.cardcrawl.ui.buttons.ProceedButton;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.unlock.cards.ironclad.ImmolateUnlock;
@@ -36,6 +41,7 @@ import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
 import org.apache.logging.log4j.Logger;
 import rorgmod.RorgMod;
+import rorgmod.powers.AbstractRorgPower;
 import rorgmod.powers.OverheatPower;
 import rorgmod.relics.AbstractRorgRelic;
 
@@ -50,10 +56,7 @@ public class OtherPatches {
     public static class OverheatPatch {
         @SpirePrefixPatch
         public static void onEvoke(Lightning __instance) {
-            Iterator<AbstractMonster> var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-            AbstractMonster mo;
-            while(var3.hasNext()) {
-                mo = var3.next();
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (mo.hasPower(OverheatPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(
                             new ApplyPowerAction(mo, mo, new VulnerablePower(mo, 1, true),
@@ -112,10 +115,8 @@ public class OtherPatches {
             RorgMod.logger.info("Patching reworked defrag");
             AbstractPower power = AbstractDungeon.player.getPower("rorgmod:Defragment");
             if (power != null && __instance instanceof Lightning) {
-                int lightningAmount = 0;
-                Iterator var1 = AbstractDungeon.player.orbs.iterator();
-                while (var1.hasNext()) {
-                    AbstractOrb orb = (AbstractOrb) var1.next();
+                int lightningAmount = -1;
+                for (AbstractOrb orb : AbstractDungeon.player.orbs) {
                     if (orb instanceof Lightning) lightningAmount++;
                 }
                 __instance.passiveAmount += power.amount * lightningAmount;
@@ -123,4 +124,25 @@ public class OtherPatches {
             }
         }
     }
+
+    @SpirePatch(clz = ProceedButton.class, method = "update")
+    public static class FixEvents { // from vexmod
+        // Note: this should really be moved to BaseMod
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(Instanceof i) throws CannotCompileException {
+                    try {
+                        if (i.getType().getName().equals(Mushrooms.class.getName())) {
+                            RorgMod.logger.info("Finding and gremlin wheel event proceed button");
+                            i.replace("$_ = $proceed($$) || currentRoom.event instanceof rorgmod.events.GremlinWheel;");
+                        }
+                    } catch (NotFoundException e) {
+                        RorgMod.logger.error("Combat proceed button patch broken.", e);
+                    }
+                }
+            };
+        }
+    }
+
 }

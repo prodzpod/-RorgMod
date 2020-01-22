@@ -102,7 +102,7 @@
   },
   "rorgmod:Shadowmeld": {
     "NAME": "암흑 융융",
-    "DESCRIPTION": "매 턴마다 암흑을 !M! 번 영창합니다. 구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동합니다."
+    "DESCRIPTION": "구체를 영창할 때 마다, 모든 암흑의 지속 효과를 발동합니다."
   },
   "rorgmod:Biogeneration": {
     "NAME": "생물학적 발전",
@@ -129,8 +129,8 @@
     "DESCRIPTION": "무작위 구체를 !M! 번 영창합니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "무작위 구체를 !M! 번 영창합니다."
   },
-  "rorgmod:Bad Sector": {
-    "NAME": "불량 섹터",
+  "rorgmod:Fuse Blower": {
+    "NAME": "퓨즈 송풍기",
     "DESCRIPTION": "전기를 2 번 영창합니다, NL *화상 을 뽑을 카드 더미에 넣습니다."
   },
   "rorgmod:Denial of Service": {
@@ -161,14 +161,6 @@
     "NAME": "검은 얼음",
     "DESCRIPTION": "냉기를 발현할 때 마다 암흑을 1 번 영창합니다."
   },
-  "rorgmod:Alchemize": {
-    "NAME": "연금",
-    "DESCRIPTION": "무작위 포션 하나를 얻습니다. NL 소멸."
-  },
-  "rorgmod:Sadistic Nature": {
-    "NAME": "가학적 본성",
-    "DESCRIPTION": "적에게 부정적인 효과를 부여할 때마다 대상에게 피해를 !M! 줍니다."
-  },
   "rorgmod:Defragment": {
     "NAME": "조각모음",
     "DESCRIPTION": "현재 영창되어 있는 전기 갯수 당 전기의 피해를 !M! 증가시킵니다."
@@ -181,12 +173,48 @@
     "NAME": "도약",
     "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 카드를 1 장 더 뽑습니다."
   },
-  "rorgmod:Reboot": {
-    "NAME": "다시 시작",
-    "DESCRIPTION": "모든 카드를 뽑을 카드 더미에 섞어 넣습니다. NL 카드를 !M! 장 뽑습니다. NL 소멸."
-  },
   "rorgmod:Auto-Shields": {
     "NAME": "자동 방패",
     "DESCRIPTION": "매 턴마다 현재 부여된 버프와 디버프의 갯수만큼 방어도를 !M! 얻습니다."
+  },
+  "rorgmod:Accuracy": {
+    "NAME": "정밀",
+    "DESCRIPTION": "#y비용이 #y0인 #y카드의 피해량이 !M! 증가합니다."
+  },
+  "rorgmod:Claw": {
+    "NAME": "후벼 파기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투 동안 모든 후벼 파기 카드의 피해량이 !M! 증가합니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투 동안 모든 비용이 0인 카드의 피해량이 !M! 증가합니다."
+  },
+  "rorgmod:Follow-Up": {
+    "NAME": "뒤처리",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투에서 직전에 사용한 카드가 공격 카드일 경우 [W] 를 얻고 카드를 1장 뽑습니다."
+  },
+  "rorgmod:Phantasmal Killer": {
+    "NAME": "환영 살인마",
+    "DESCRIPTION": "다음 턴 동안 공격 카드가 두 배의 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "다음 턴에 원하는 만큼 카드를 버리고 그 만큼 새로운 카드를 뽑습니다. 다음 턴 동안 공격 카드가 두 배의 피해를 줍니다."
+  },
+  "rorgmod:Reflex": {
+    "NAME": "반사 신경",
+    "DESCRIPTION": "사용불가. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "사용불가. NL 이 카드가 버려지면 카드를 !M! 장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "이 카드는 사용할 수 없어."
+    ]
+  },
+  "rorgmod:Storm of Steel": {
+    "NAME": "강철의 폭풍",
+    "DESCRIPTION": "카드를 버릴 때 마다 *단도 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 버릴 때 마다 *단도+ 를 얻습니다."
+  },
+  "rorgmod:Prepared": {
+    "NAME": "예비",
+    "DESCRIPTION": "카드를 2 장 뽑습니다. NL 카드를 !M! 장 버립니다.",
+    "UPGRADE_DESCRIPTION": "카드를 3 장 뽑습니다. NL 카드를 !M! 장 버립니다."
+  },
+  "rorgmod:Slice": {
+    "NAME": "칼질",
+    "DESCRIPTION": "피해를 !D! 줍니다."
   }
 }

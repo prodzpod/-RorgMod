@@ -26,7 +26,7 @@
     ]
   },
   "rorgmod:Overcurrent+": {
-    "NAME": "Overcurrent+",
+    "NAME": "Delayed Evocation",
     "DESCRIPTIONS": [
       "Evoke 3 Orb Slots after #b",
       " turns."
@@ -63,7 +63,7 @@
   "rorgmod:Shadowmeld": {
     "NAME": "Shadowmeld",
     "DESCRIPTIONS": [
-      "Channel 1 Dark at the start of your turn. Whenever you channel an Orb, trigger the passive ability of all Dark orbs."
+      "Whenever you channel an Orb, trigger the passive ability of all Dark orbs."
     ]
   },
   "rorgmod:Volatility": {
@@ -92,6 +92,31 @@
     "DESCRIPTIONS": [
       "Gain #b",
       " Block for every Buff and Debuff you have."
+    ]
+  },
+  "rorgmod:Accuracy": {
+    "NAME": "Accuracy",
+    "DESCRIPTIONS": [
+      "#y0 #ycost #yAttacks deal #b",
+      " additional damage."
+    ]
+  },
+  "rorgmod:Phantasmal+": {
+    "NAME": "Killer Instinct",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, Discard any number of cards from your hand, then draw that many cards."
+    ]
+  },
+  "rorgmod:Storm of Steel": {
+    "NAME": "Storm of Steel",
+    "DESCRIPTIONS": [
+      "Whenever you Discard a card, Add 1 #yShiv into your hand."
+    ]
+  },
+  "rorgmod:Storm of Steel+": {
+    "NAME": "Storm of Steel",
+    "DESCRIPTIONS": [
+      "Whenever you Discard a card, Add 1 #yShiv+ into your hand."
     ]
   }
 }

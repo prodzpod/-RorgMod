@@ -7,14 +7,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 
 public class LooseScrewsPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Loose Screws";
-    private static final String IMG_PATH = "rorgmod/powers/looseScrews";
 
     public LooseScrewsPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, IMG_PATH, PowerType.BUFF, RorgPowerType.TICKDOWN_END, false, owner, amount);
-    }
-
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        super(POWER_ID, "rorgmod/powers/looseScrews", PowerType.BUFF, RorgPowerType.TICKDOWN_END, false, owner, amount);
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
