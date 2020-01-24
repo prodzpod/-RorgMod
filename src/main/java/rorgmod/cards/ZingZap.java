@@ -12,7 +12,7 @@ public class ZingZap extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Zing-Zap";
 
     public ZingZap() {
-        super("rorgmod:Zing-Zap", DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
+        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
         setAttack(10, 3);
         setBlock(3, 1);
     }

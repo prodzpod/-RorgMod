@@ -13,9 +13,8 @@ public class HotSockets extends AbstractRorgCard {
     public static final String CARD_ID = "rorgmod:Hot Sockets";
 
     public HotSockets() {
-        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
-        setAttack(4,1);
-        applyPowers();
+        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);
+        setAttack(4,2);
     }
 
     public void applyPowers() {
@@ -36,9 +35,7 @@ public class HotSockets extends AbstractRorgCard {
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster) {
         evokeOrb(1, 1);
-        for (int i = 0; i < magicNumber; ++i) {
-            dealRandomDamage(damage, AbstractGameAction.AttackEffect.LIGHTNING);
-        }
+        dealRandomDamage(damage, magicNumber, AbstractGameAction.AttackEffect.LIGHTNING);
     }
 
     @Override
