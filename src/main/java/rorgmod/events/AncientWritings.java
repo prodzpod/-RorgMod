@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class AncientWritings extends AbstractImageEvent {
-    public static final String ID = "rorgmod:Ancient Writings";
+    public static final String ID = "rorgmod:Ancient Writing";
     private static final EventStrings eventStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
