@@ -3,7 +3,7 @@
 
     <groupId>rorgmod</groupId>
     <artifactId>rorgmod</artifactId>
-    <version>v1.2.4</version>
+    <version>v1.2.5</version>
     <packaging>jar</packaging>
 
     <name>RorgMod</name>

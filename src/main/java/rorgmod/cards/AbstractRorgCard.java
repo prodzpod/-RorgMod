@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ElectroPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import rorgmod.RorgMod;
 import rorgmod.actions.ApplyAOEPowerAction;
 import rorgmod.actions.CycleAction;
 import rorgmod.actions.TriggerAllPassivesAction;
@@ -159,7 +160,8 @@ public class AbstractRorgCard extends CustomCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         /*****************    OVERRIDE THIS   **************************************     PLEASE   **************/
-        if (this.damage != 0) dealDamage(abstractMonster, damage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        RorgMod.logger.error("Card use method is not overridden. Default card effect is played.");
+        if (this.damage != 0) dealDamage(abstractMonster, damage);
         if (this.block != 0) block(block);
         if (this.magicNumber != 0) applyPower(abstractMonster, new VulnerablePower(abstractMonster, magicNumber, false));
     }

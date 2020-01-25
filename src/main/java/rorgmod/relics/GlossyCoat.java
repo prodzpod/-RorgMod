@@ -25,17 +25,12 @@ public class GlossyCoat extends AbstractRorgRelic {
     @Override
     public void onApplyPower(AbstractPower powerToApply, AbstractCreature target, AbstractCreature source) {
         if (target instanceof AbstractPlayer && (powerToApply instanceof VulnerablePower || powerToApply instanceof WeakPower)) {
-            Constructor construct = null;
-            try {
-                construct = powerToApply.getClass().getConstructor(AbstractCreature.class, int.class, boolean.class);
-            } catch (NoSuchMethodException e) {
-                RorgMod.logger.error("Glossy Coat error");
-                RorgMod.logger.error(e);
-            }
             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 AbstractPower newPower = null;
                 try {
-                    if (construct != null) newPower = (AbstractPower) construct.newInstance(monster, powerToApply.amount, false);
+                    newPower = (AbstractPower) powerToApply.getClass().
+                            getConstructor(AbstractCreature.class, int.class, boolean.class).
+                            newInstance(monster, powerToApply.amount, false);
                 } catch (Exception e) {
                     RorgMod.logger.error("Glossy Coat error");
                     RorgMod.logger.error(e);

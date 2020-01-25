@@ -7,7 +7,8 @@ Rebalance/Rework mod for Slay the Spire.
 * __BaseMod__ (https://steamcommunity.com/workshop/filedetails/?id=1605833019)
 
 ## Credits
-* Idea (The Rorg™)
+Keep in mind that I'm just a developer, all credits to card changes goes to:
+* Ideas / The Rorg™ (These people)
   * Baefeather
   * Emil
   * Fluer de Violet
@@ -48,6 +49,8 @@ Rebalance/Rework mod for Slay the Spire.
   * Deal 5(7) damage twice to ALL enemies. Lose 1 Orb slot.
 * **Fuse Blower** (1(0) ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Channel 2 Lightning, Shuffle a Burn into your draw pile.
+* **Hexaburn** (Unplayable, Status, Special, Colorless)
+  * At the end of the turn, take 4 damage.
 * **Hot Sockets** (1 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue)
   * Evoke your next orb. Deal 4(5) damage to a random enemy for each empty orb slot.
 * **Loose Screws** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Rare, Blue)
@@ -61,23 +64,21 @@ Rebalance/Rework mod for Slay the Spire.
 * **Overcurrent** (0 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
   * Gain 3 Orb slots. After 3 turns, (evoke your first three orbs and) lose 3 Orb slots.
 * **Overheat** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
-  * Every time you Evoke Lightning this turn, apply 1(2) Vulnerable. Exhaust. 
+  * Every time you Evoke Lightning this turn, apply 1(2) Vulnerable. Exhaust.
+* **Radar Scan** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+  * Apply 2(3) Bullseye to ALL enemies. Exhaust. 
 * **Refrigerate** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
   * Apply 2(3) Weak. Channel 1 Frost.
 * **SQL Injection** (1 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue)
   * Deal 8(11) damage. If you have channeled 2 or more Orbs this turn, apply 2(3) Vulnerable.
-* **Zing-Zap** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue)
-  * Deal 10(13) damage. Gain 3(4) Block for each Lightning you have.
-* **Radar Scan** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
-  * Apply 2(3) Bullseye to ALL enemies. Exhaust.
 * **Steady Aim** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
   * Gain 4(5) block twice. Apply 1 Bullseye 2(3) times. 
 * **Ventilation Error** (2 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Evoke your next Orb twice. Apply 3(5) Weak to ALL enemies. Exhaust.
 * **Volatility** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, Blue)
   * The first time you Evoke Plasma each turn, draw 2(3) cards. Channel 1 Plasma.
-* **Hexaburn** (Unplayable, Status, Special, Colorless)
-  * At the end of the turn, take 4 damage.
+* **Zing-Zap** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue)
+  * Deal 10(13) damage. Gain 3(4) Block for each Lightning you have.
 
 
 * **Denial of Service** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
@@ -102,16 +103,14 @@ Rebalance/Rework mod for Slay the Spire.
   * Double the enemy's Poison. Exhaust.
 * **Chaos** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Channel 2 random Orbs Exhaust. (Doesn’t Exhaust.)
-* **Claw** (0 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue)
-  * Deal 3 damage. Increase the damage of ALL Claw cards(0 cost Attacks) by 2 this combat.
+* **Discovery** (1 ![Energy](http://tinyurl.com/ColorlessEnergy), Skill, Rare, Colorless)
+  * Choose 1 of 3 random cards to add into your hand. It costs 0 this turn. Exhaust. (Doesn't Exhaust.)
 * **Envenom** (1(0) ![Energy](http://tinyurl.com/SilentsEnergy), Power, Rare, Green)
   * Whenever an Attack deals unblocked damage, apply 1 Poison.
 * **Follow-Up** (1 ![Energy](http://tinyurl.com/WatcherEnergy), Attack, Common, Purple)
   * Deal 7(11) damage. If the last card played this combat was an Attack, gain ![Energy](http://tinyurl.com/WatcherEnergy) and draw 1 card.
 * **Fusion** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * (Gain 1 Orb slot.) Channel 1 Plasma.
-* **Go for the Eyes** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue)
-  * Whenever you would apply any debuff to an enemy, apply 1(2) more.
 * **Immolate** (2 ![Energy](http://tinyurl.com/IroncladEnergy), Attack, Rare, Red)
   * Deal 20(26) damage. Shuffle a Burn into your *draw* pile.
 * **Leap** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
@@ -120,6 +119,8 @@ Rebalance/Rework mod for Slay the Spire.
   * (At the start of your next turn, Discard any number of cards from your hand, then draw that many cards.) Next turn, your Attacks deal double damage.
 * **Prepared** (0 ![Energy](http://tinyurl.com/SilentsEnergy), Skill, Common, Green)
   * Draw 2(3) cards. NL Discard 1(2) card.
+* **Reboot** (0 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+  * Shuffle ALL your cards into your draw pile. Draw 4(6) cards. Exhaust.
 * **Reflex** (Unplayable, Skill, Uncommon, Green)
   * Unplayable. If this card is discarded from your hand, draw 2 cards. Exhaust. (Doesn't Exhaust.)
 * **Sadistic Nature** (0 ![Energy](http://tinyurl.com/SilentsEnergy), Power, Rare, *Green*)
@@ -137,8 +138,12 @@ Rebalance/Rework mod for Slay the Spire.
   
 * **Auto-Shields** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Gain 2(3) Block for all Buffs and Debuffs you have.
+* **Claw** (0 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue)
+  * Deal 3 damage. Increase the damage of ALL Claw cards(0 cost Attacks) by 2 this combat.
 * **Defragment** (1(0) ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Lightnings deal 1 more damage for each Lightning you have.
+* **Go for the Eyes** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue)
+  * Whenever you would apply any debuff to an enemy, apply 1(2) more.
 
 
 ### Removed Cards

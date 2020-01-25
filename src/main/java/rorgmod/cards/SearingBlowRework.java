@@ -12,7 +12,9 @@ public class SearingBlowRework extends AbstractRorgCard {
 
     public static final String CARD_ID = "rorgmod:Searing Blow";
 
-    public SearingBlowRework() {
+    public SearingBlowRework() { this(0); }
+
+    public SearingBlowRework(int upgrades) {
         super(CARD_ID, "rorgmod/cards/searing_blow.png", 2, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setAttack(16, 4);
         this.timesUpgraded = 0;
@@ -23,7 +25,7 @@ public class SearingBlowRework extends AbstractRorgCard {
         if (monster != null) {
             this.addToBot(new VFXAction(new SearingBlowEffect(monster.hb.cX, monster.hb.cY, this.timesUpgraded), 0.2F));
         }
-        this.addToBot(new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        dealDamage(monster, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
     }
 
     @Override
@@ -37,6 +39,6 @@ public class SearingBlowRework extends AbstractRorgCard {
 
     @Override
     public AbstractRorgCard makeCopy() {
-        return new SearingBlowRework();
+        return new SearingBlowRework(this.timesUpgraded);
     }
 }

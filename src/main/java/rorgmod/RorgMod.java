@@ -63,7 +63,7 @@ import static basemod.BaseMod.registerModBadge;
 import static basemod.BaseMod.removePotion;
 
 @SpireInitializer
-public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, PostInitializeSubscriber, PostPowerApplySubscriber {
+public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, PostInitializeSubscriber {
 //TODO : ADD ALL REMOVE/CHANGES IN THE NEW FORMAT, AND DEBUG
     public static Logger logger = LogManager.getLogger(RorgMod.class.getName());
     private static UIStrings uistrings;
@@ -110,14 +110,16 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
             Melange.ID,
             DarkstonePeriapt.ID,
             VioletLotus.ID,
-            IncenseBurner.ID
+            IncenseBurner.ID,
+            TinyChest.ID,
+            CeramicFish.ID,
+            Matryoshka.ID
     };
 
     public static String eventsToRemove[] = {
             Ghosts.ID,
             GremlinWheelGame.ID, // REWORKED
             ForgottenAltar.ID,
-            BackToBasics.ID, // REWORKED
             SecretPortal.ID
     };
 
@@ -136,7 +138,8 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
     public static RelicChanges relicsToChange[] = {
             new RelicChanges(MummifiedHand.ID, AbstractRelic.RelicTier.RARE),
             new RelicChanges(WristBlade.ID, AbstractRelic.RelicTier.RARE),
-            new RelicChanges(NinjaScroll.ID, AbstractRelic.RelicTier.SHOP)
+            new RelicChanges(NinjaScroll.ID, AbstractRelic.RelicTier.SHOP),
+            new RelicChanges(Shovel.ID, AbstractRelic.RelicTier.UNCOMMON)
     };
 
     public static boolean enableDebuffect;
@@ -145,39 +148,17 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
     public RorgMod() {
         BaseMod.subscribe(this);
         Properties defaults = new Properties();
-        defaults.setProperty("enableDebuffect", "FALSE");
-        defaults.setProperty("enableBetaCards", "FALSE");
+        defaults.setProperty("enableDebuffect", "false");
+        defaults.setProperty("enableBetaCards", "false");
         try {
             config = new SpireConfig("RRrroohrrRGHHhhh!!", "RorgModConfig", defaults);
         } catch (IOException e) {
             logger.error("RorgMod SpireConfig initialization failed:");
             e.printStackTrace();
         }
-        logger.info("rorg! :>");
-        switch (config.getString("enableDebuffect")) {
-            case "TRUE":
-                RorgMod.enableDebuffect = true;
-                break;
-            case "FALSE":
-                RorgMod.enableDebuffect = false;
-                break;
-            default:
-                RorgMod.enableDebuffect = false;
-                logger.warn("Config was set wrong, setting default instead");
-                break;
-        }
-        switch (config.getString("enableBetaCards")) {
-            case "TRUE":
-                RorgMod.enableBetaCards = true;
-                break;
-            case "FALSE":
-                RorgMod.enableBetaCards = false;
-                break;
-            default:
-                RorgMod.enableBetaCards = false;
-                logger.warn("Config was set wrong, setting default instead");
-                break;
-        }
+        logger.info("RRrrohrRGHHhhh!!");
+        enableDebuffect = config.getBool("enableDebuffect");
+        enableBetaCards = config.getBool("enableBetaCards");
     }
 
     public static void initialize() {
@@ -189,11 +170,14 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         logger.info("RRrroohrrRGHHhhh!!");
         uistrings = CardCrawlGame.languagePack.getUIString(ID);
         String[] TEXT = uistrings.TEXT;
+
+        // BADGES // CONFIGS
+
         ModPanel settingsPanel = new ModPanel();
 
         ModLabeledToggleButton debuffect = new ModLabeledToggleButton(TEXT[2], 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, settingsPanel, label -> {}, button -> {
             RorgMod.enableDebuffect = button.enabled;
-            RorgMod.config.setString("enableDebuffect", enableDebuffect ? "TRUE" : "FALSE");
+            RorgMod.config.setBool("enableDebuffect", enableDebuffect);
             try {RorgMod.config.save();} catch (IOException e) {
                 logger.warn("Config save failed at:");
                 e.printStackTrace();
@@ -203,7 +187,7 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
 
         ModLabeledToggleButton BetaCards = new ModLabeledToggleButton(TEXT[3], 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, settingsPanel, label -> {}, button -> {
             RorgMod.enableBetaCards = button.enabled;
-            RorgMod.config.setString("enableBetaCards", enableBetaCards ? "TRUE" : "FALSE");
+            RorgMod.config.setBool("enableBetaCards", enableBetaCards);
             try {RorgMod.config.save();} catch (IOException e) {
                 logger.warn("Config save failed at:");
                 e.printStackTrace();
@@ -217,12 +201,11 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         Texture badgeTexture = new Texture("rorgmod/badge.png");
         registerModBadge(badgeTexture, TEXT[0], "prodzpod", TEXT[1], settingsPanel);
 
+        // OTHER ADDS
+
         BaseMod.addMonster(WheelGremlin.ID, WheelGremlin::new);
 
         BaseMod.addEvent(GremlinWheel.ID, GremlinWheel.class);
-        BaseMod.addEvent(AncientWritings.ID, AncientWritings.class);
-
-        removePotion(GhostInAJar.POTION_ID);
 
         ConsoleCommand.addCommand("reward", Reward.class);
     }
@@ -247,7 +230,6 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
                 new Centralize(),
                 new StormRework(),
                 new Overheat(),
-                new GoForTheEyesRework(),
                 new HotSockets(),
                 new Biogeneration(),
                 new Volatility(),
@@ -261,7 +243,6 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
                 new BiasedCognitionRework(),
                 new LeapRework(),
                 new StormOfSteelRework(),
-                new ClawRework(),
                 new AccuracyRework(),
                 new ReflexRework(),
                 new PhantasmalKillerRework(),
@@ -279,6 +260,8 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
                 new PusherProps(),
                 new MetalCoating(),
                 new DefragmentRework(),
+                new ClawRework(),
+                new GoForTheEyesRework(),
                 new Shadowmeld()
         };
 
@@ -362,14 +345,8 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         }
     }
 
-    @Override
-    public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature target, AbstractCreature source) {
-        if (abstractPower instanceof IntangiblePlayerPower || abstractPower instanceof IntangiblePower) {
-            int stack = abstractPower.amount;
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, source, abstractPower));
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new NoPower(target, stack)));
-        }
-    }
+    // these used to be a "intangible to NoPower" subscriber. but now that I'm 400% sure all source of intangible is removed/reworked, there is no need.
+    // modded source of intangible can do whatever /shrug
 
     public static class CardChanges {
         public String ID = null;

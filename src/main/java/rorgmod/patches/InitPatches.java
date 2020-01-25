@@ -1,23 +1,37 @@
 package rorgmod.patches;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
+import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.events.city.BackToBasics;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.MonsterHelper;
 import com.megacrit.cardcrawl.helpers.PotionHelper;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import com.megacrit.cardcrawl.monsters.city.SnakePlant;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.cards.ironclad.ImmolateUnlock;
 import com.megacrit.cardcrawl.unlock.cards.silent.CatalystUnlock;
 import com.megacrit.cardcrawl.unlock.cards.silent.CorpseExplosionUnlock;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
+import javassist.expr.NewExpr;
 import rorgmod.RorgMod;
 
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -215,6 +229,56 @@ public class InitPatches {
         }
     }
 
+    /** MONSTERS **/
+
+    @SpirePatch(
+            clz= TheCity.class,
+            method= "generateStrongEnemies"
+    )
+    public static class RemoveSnakePlant { // TODO: rework in 1.3
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"monsters"}
+        )
+        public static void Insert(ArrayList<MonsterInfo> monsters) {
+            MonsterInfo monsterToRemove = null;
+            for (MonsterInfo monster : monsters) if (monster.name == MonsterHelper.SNAKE_PLANT_ENC) monsterToRemove = monster;
+            monsters.remove(monsterToRemove);
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(MonsterInfo.class, "normalizeWeights");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= TheBeyond.class,
+            method= "generateElites"
+    )
+    public static class RemoveNemesis { // TODO: rework + add more in 1.3
+        @SpireInsertPatch(
+                locator = RemoveSnakePlant.Locator.class,
+                localvars = {"monsters"}
+        )
+        public static void Insert(ArrayList<MonsterInfo> monsters) {
+            MonsterInfo monsterToRemove = null;
+            for (MonsterInfo monster : monsters) if (monster.name == MonsterHelper.NEMESIS_ENC) monsterToRemove = monster;
+            monsters.remove(monsterToRemove);
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(MonsterInfo.class, "normalizeWeights");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
+
     /** CHANGES **/
 
     @SpirePatch(
@@ -223,8 +287,7 @@ public class InitPatches {
             paramtypez= { String.class, String.class, String.class, int.class, String.class, AbstractCard.CardType.class, AbstractCard.CardColor.class, AbstractCard.CardRarity.class, AbstractCard.CardTarget.class, DamageInfo.DamageType.class }
     )
     public static class CardChanges {
-        @SpirePrefixPatch
-        public static void AbstractCards(AbstractCard __instance, String id, String name, String imgUrl, @ByRef int[] cost, String rawDescription, AbstractCard.CardType type, @ByRef AbstractCard.CardColor[] color, @ByRef AbstractCard.CardRarity[] rarity, AbstractCard.CardTarget target, DamageInfo.DamageType dType) {
+        public static void Prefix(AbstractCard __instance, String id, String name, String imgUrl, @ByRef int[] cost, String rawDescription, AbstractCard.CardType type, @ByRef AbstractCard.CardColor[] color, @ByRef AbstractCard.CardRarity[] rarity, AbstractCard.CardTarget target, DamageInfo.DamageType dType) {
             for (RorgMod.CardChanges change : RorgMod.cardsToChange) {
                 if (id.equals(change.ID)) {
                     if (change.RARITY != null) rarity[0] = change.RARITY;
@@ -245,6 +308,38 @@ public class InitPatches {
             for (RorgMod.RelicChanges change : RorgMod.relicsToChange) {
                 if (setId.equals(change.ID)) tier[0] = change.tier;
             }
+        }
+    }
+
+    @SpirePatch(
+            clz= BackToBasics.class,
+            method= "upgradeStrikeAndDefends"
+    )
+    public static class ChangeAncientWriting {
+        public static void Prefix() {
+            RorgMod.logger.info("patching Ancient Writings... (1/2)");
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(AbstractDungeon.getCard(AbstractCard.CardRarity.CURSE), MathUtils.random(0.1F, 0.9F) * (float) Settings.WIDTH, MathUtils.random(0.2F, 0.8F) * (float)Settings.HEIGHT));
+        }
+    }
+
+    @SpirePatch(
+            clz= BackToBasics.class,
+            method= SpirePatch.STATICINITIALIZER
+    )
+    public static class ChangeAncientWriting2 {
+        private static boolean found = false;
+
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess i) throws CannotCompileException {
+                    if (!found && i.getFieldName().equals("OPTIONS")) {
+                        found = true;
+                        RorgMod.logger.info("patching Ancient Writings... (2/2)");
+                        i.replace("{ $_ = " + CardCrawlGame.class.getName() + ".languagePack.getEventString(\"rorgmod:Ancient Writing\").OPTIONS; }");
+                    }
+                }
+            };
         }
     }
 }
