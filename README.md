@@ -138,11 +138,11 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   
 * **Auto-Shields** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Gain 2(3) Block for all Buffs and Debuffs you have.
-* **Claw** (0 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue)
+* **Claw** (0 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue) **(ACTIVATE IN CONFIG)**
   * Deal 3 damage. Increase the damage of ALL Claw cards(0 cost Attacks) by 2 this combat.
 * **Defragment** (1(0) ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Lightnings deal 1 more damage for each Lightning you have.
-* **Go for the Eyes** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue)
+* **Go for the Eyes** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Whenever you would apply any debuff to an enemy, apply 1(2) more.
 
 
