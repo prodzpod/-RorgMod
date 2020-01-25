@@ -186,13 +186,18 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   * At the start of each combat, add 3 Shivs into your hand.
 * **Wrist Blade** (*Rare*, Green)
   * Attacks that cost 0 deal 4 additional damage.
+* **Shovel** (*Uncommon*, All)
+  * You can now *Dig* for relics at Rest Sites.
 
 ### Removed Relics
+* **Ceramic Fish** (Reworked Version coming soon)
 * **Darkstone Periapt** (Reworked Version coming soon)
 * **Dead Branch**
 * **Incense Burner**
+* **Matryoshka**
 * **Melange**
 * **Runic Cube**
+* **Tiny Chest**
 * **Tiny House** (Reworked Version coming soon)
 * **Violet Lotus**
 
