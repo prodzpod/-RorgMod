@@ -36,7 +36,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 ### Localization
 * English
 * Korean
-* Simplified Chinese *(planned)*
+* ~~Simplified Chinese~~ *(planned)*
 
 ### Added Keywords
 * **Gamble**
@@ -79,14 +79,8 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   * Deal 6(8) damage. Cycle orbs clockwise 1 slot. Trigger the passive of your next orb 1(2) times.
 * **Malware** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
   * Evoke your rightmost Dark. It hits ALL enemies. (Channel 1 Dark.)
-* **Neutron Shower** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Rare, Blue)
-  * Randomize all of your channeled orbs. Trigger the passive of all orbs. Exhaust. (Doesn’t Exhaust)
 * **Overcurrent** (0 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
-  * Gain 3 Orb slots. After 3 turns, (evoke your first three orbs and) lose 3 Orb slots. Exhaust.
-* **Overheat** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
-  * Every time you Evoke Lightning this turn, apply 1(2) Vulnerable. Exhaust.
-* **Radar Scan** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
-  * Apply 2(3) Bullseye to ALL enemies. Exhaust. 
+  * Gain 3 Orb slots. After 3 turns, (evoke your first three orbs and) lose 3 Orb slots. Exhaust. 
 * **Refrigerate** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
   * Apply 2(3) Weak. Channel 1 Frost.
 * **SQL Injection** (1 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Common, Blue)
@@ -105,12 +99,18 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 
 * **Denial of Service** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Deal 10(13) damage. If the enemy intends to attack, deal 10(13) damage again.
+* **Metal Coating** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
+  * Gain 15(18) block. Gain 3(2) Frail.
+* **Neutron Shower** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Rare, Blue) **(ACTIVATE IN CONFIG)**
+  * Randomize all of your channeled orbs. Trigger the passive of all orbs. Exhaust. (Doesn’t Exhaust)
+* **Overheat** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
+  * Every time you Evoke Lightning this turn, apply 1(2) Vulnerable. Exhaust.
 * **Propelled Flight** (2 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Gain 6(8) Block twice. If you have 2 or more Dexterity, gain 6(8) Block during your next turn.
 * **Pusher Props** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
   * Deal 8(10) damage twice. If you have 2 or more Strength, apply 2(3) Weak.
-* **Metal Coating** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
-  * Gain 15(18) block. Gain 3(2) Frail.
+* **Radar Scan** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue) **(ACTIVATE IN CONFIG)**
+  * Apply 2(3) Bullseye to ALL enemies. Exhaust.
 * **Shadowmeld** (2 ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, Blue) **(ACTIVATE IN CONFIG)**
   * Whenever you channel an Orb, trigger the passive ability of all Dark orbs.
 
