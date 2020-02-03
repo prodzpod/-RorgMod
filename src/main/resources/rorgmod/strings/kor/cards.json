@@ -227,7 +227,8 @@
   },
   "rorgmod:Wraith Form": {
     "NAME": "유령의 형상 A",
-    "DESCRIPTION": "매 턴마다 처음 버린 카드를 냅니다."
+    "DESCRIPTION": "매 턴마다 처음 버린 카드를 냅니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 매 턴마다 처음 버린 카드를 냅니다."
   },
   "rorgmod:Wraith Form 2": {
     "NAME": "유령의 형상 B",

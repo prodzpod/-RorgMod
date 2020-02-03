@@ -12,7 +12,8 @@ public class WraithFormRework extends AbstractRorgCard {
 
     public WraithFormRework() {
         super(ID, "rorgmod/cards/wraith_form.png", 3, CardType.POWER, CardColor.GREEN, CardRarity.RARE, CardTarget.SELF);
-        setCostUpgrade();
+        upgradeToInnate();
+        setCustomUpgrade();
         tags.add(BaseModCardTags.FORM);
         REWORK_ID = WraithForm.ID;
     }

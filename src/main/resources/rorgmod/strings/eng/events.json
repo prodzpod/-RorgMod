@@ -39,5 +39,25 @@
       "Select a Card to Remove.",
       "[Leave]"
     ]
+  },
+  "Golden Idol": {
+    "NAME": "Golden Idol",
+    "DESCRIPTIONS": [
+      "You come across an inconspicuous pedestal with a #yshining #ygold #yidol sitting peacefully atop. It looks incredibly valuable. NL NL You sure don't see any traps nearby.",
+      "As you grab the Idol and stow it away, a giant boulder smashes through the ceiling into the ground next to you. NL You realize that the floor is slanted downwards as the boulder starts to roll towards you.",
+      "@RUUUUUUUUUUN!@ NL You barely leap into a side passageway as the boulder rushes by. Unfortunately it feels like you sprained something however.",
+      "You throw yourself at the boulder with everything you have. When the dust clears, you can make a safe way out.",
+      "@SQUISH!@ NL The boulder flattens you a little as it passes by, but otherwise you can get out of here.",
+      "If there was ever an obvious trap, this would be it. NL You decide not to interfere with objects placed upon pedestals."
+    ],
+    "OPTIONS": [
+      "[Take] #gObtain #gGolden #gIdol. #rTrigger #ra #rtrap.",
+      "[Leave]",
+      "[Outrun] #rBecome #rCursed #r- #rAche.",
+      "[Smash] #rTake #r",
+      " #rDamage.",
+      "[Hide] #rLose #r",
+      " #rMax #rHP."
+    ]
   }
 }

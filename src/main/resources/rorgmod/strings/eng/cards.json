@@ -227,7 +227,8 @@
   },
   "rorgmod:Wraith Form": {
     "NAME": "Sanfu Form",
-    "DESCRIPTION": "Play the first card you Discard every turn."
+    "DESCRIPTION": "Play the first card you Discard every turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Play the first card you Discard every turn."
   },
   "rorgmod:Wraith Form 2": {
     "NAME": "Fleur Form",

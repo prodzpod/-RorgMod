@@ -149,6 +149,8 @@ public class ListHelper {
         add(ToolsOfTheTrade.ID);
         add(Sentinel.ID);
         add(Injury.ID);
+        add(Reprogram.ID);
+        add(Tempest.ID);
     }};
 
     public static ArrayList<String          > cardsInBeta     = new ArrayList<String>();
@@ -231,11 +233,6 @@ public class ListHelper {
     public static ArrayList<CommandAdds     > commandsToAdd   = new ArrayList<CommandAdds>() {{
         add(new CommandAdds("reward", Reward.class));
     }};
-
-    // initialize aList
-    static {
-
-    }
 
     // class
     public static class RelicAdds {

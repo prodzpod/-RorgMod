@@ -8,6 +8,10 @@ import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.EchoForm;
+import com.megacrit.cardcrawl.cards.curses.Injury;
+import com.megacrit.cardcrawl.cards.purple.DevaForm;
+import com.megacrit.cardcrawl.cards.red.DemonForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,6 +20,7 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.city.BackToBasics;
+import com.megacrit.cardcrawl.events.exordium.GoldenIdolEvent;
 import com.megacrit.cardcrawl.events.shrines.GremlinWheelGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.MonsterHelper;
@@ -32,8 +37,13 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
+import javassist.expr.NewExpr;
 import rorgmod.RorgMod;
 import rorgmod.cards.AbstractRorgCard;
+import rorgmod.cards.Ache;
+import rorgmod.cards.WraithFormAltRework;
+import rorgmod.cards.WraithFormRework;
 import rorgmod.helpers.ListHelper;
 import rorgmod.powers.ImmunityPower;
 
@@ -199,6 +209,34 @@ public class InitPatches {
         public static void Prefix() {
             RorgMod.logger.info("patching Ancient Writings...");
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(AbstractDungeon.getCard(AbstractCard.CardRarity.CURSE), MathUtils.random(0.1F, 0.9F) * (float) Settings.WIDTH, MathUtils.random(0.2F, 0.8F) * (float)Settings.HEIGHT));
+        }
+    }
+
+    @SpirePatch(clz= GoldenIdolEvent.class, method="buttonEffect")
+    public static class TempPatchInjury {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall i) throws CannotCompileException {
+                    if (i.getClassName().equals(CardLibrary.class.getName()) && i.getMethodName().equals("getCopy")) {
+                        i.replace("{ $_ = $proceed(\"" + Ache.ID + "\"); }");
+                    }
+                }
+            };
+        }
+    }
+
+    @SpirePatch(clz= GoldenIdolEvent.class, method="buttonEffect")
+    public static class TempPatchInjury2 {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(NewExpr i) throws CannotCompileException {
+                    if (i.getClassName().equals(Injury.class.getName())) {
+                        i.replace("{ $_ = new " + Ache.class.getName() + "(); }");
+                    }
+                }
+            };
         }
     }
 
