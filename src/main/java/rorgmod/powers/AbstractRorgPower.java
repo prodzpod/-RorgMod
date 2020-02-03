@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import rorgmod.RorgMod;
 
@@ -19,6 +20,8 @@ public class AbstractRorgPower extends AbstractPower {
     public String NAME = powerStrings.NAME;
     public String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public RorgPowerType TYPE = RorgPowerType.TICKDOWN_END;
+
+    public boolean zeroAllowed = false;
 
     public AbstractRorgPower(String id, String url, PowerType type, RorgPowerType type2, boolean isUnique, AbstractCreature owner) {
         this(id, url, type, type2, isUnique, owner, 1);
@@ -67,9 +70,13 @@ public class AbstractRorgPower extends AbstractPower {
         this.canGoNegative = true;
     }
 
+    public void allowZero() { this.zeroAllowed = true; }
+
     public void onDiscardCard() {
         /** DO SOMETHING **/
     }
+
+    public void onOrbPassive(AbstractOrb orb) {}
 
     @Override
     public void stackPower(int stackAmount) {
@@ -82,7 +89,7 @@ public class AbstractRorgPower extends AbstractPower {
             if (this.amount >= 999) {
                 this.amount = 999;
             }
-            else if (this.amount == 0) {
+            else if (!this.zeroAllowed && this.amount == 0) {
                 this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
             }
         }
@@ -99,7 +106,7 @@ public class AbstractRorgPower extends AbstractPower {
             if (!canGoNegative && amount < 0) {
                 this.amount = 0;
             }
-            if (this.amount == 0) {
+            if (!this.zeroAllowed && this.amount == 0) {
                 this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
             }
             else if (this.amount <= -999) {
@@ -113,7 +120,7 @@ public class AbstractRorgPower extends AbstractPower {
     @Override
     public void atEndOfRound() {
         endOfRound();
-        if (this.amount == 0) {
+        if (!this.zeroAllowed && this.amount == 0) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {
             switch (this.TYPE) {
@@ -141,7 +148,7 @@ public class AbstractRorgPower extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         endOfTurn();
-        if (this.amount == 0) {
+        if (!this.zeroAllowed && this.amount == 0) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {
             switch (this.TYPE) {

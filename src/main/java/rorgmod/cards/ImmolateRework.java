@@ -2,17 +2,19 @@ package rorgmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.red.Immolate;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ImmolateRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Immolate";
+    public static final String ID = "rorgmod:Immolate";
 
     public ImmolateRework() {
-        super(CARD_ID, "rorgmod/cards/immolate.png", 2, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ALL);
+        super(ID, "rorgmod/cards/immolate.png", 2, CardType.ATTACK, CardColor.RED, CardRarity.RARE, CardTarget.ALL);
         setAttack(20, 6);
+        REWORK_ID = Immolate.ID;
     }
 
     @Override

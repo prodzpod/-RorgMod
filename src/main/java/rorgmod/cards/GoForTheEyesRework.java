@@ -1,16 +1,19 @@
 package rorgmod.cards;
 
+import com.megacrit.cardcrawl.cards.blue.GoForTheEyes;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rorgmod.powers.GoForTheEyesPower;
 
 public class GoForTheEyesRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Go for the Eyes";
+    public static final String ID = "rorgmod:Go for the Eyes";
 
     public GoForTheEyesRework() {
-        super(CARD_ID, "rorgmod/cards/go_for_the_eyes.png", 1, CardType.POWER, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, "rorgmod/cards/go_for_the_eyes.png", 1, CardType.POWER, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
         setMagic(1, 1);
+        REWORK_ID = GoForTheEyes.ID;
+        BETA = true;
     }
 
     @Override

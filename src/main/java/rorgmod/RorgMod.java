@@ -5,7 +5,6 @@ import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.devcommands.ConsoleCommand;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,143 +12,49 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Reboot;
-import com.megacrit.cardcrawl.cards.colorless.Apparition;
-import com.megacrit.cardcrawl.cards.colorless.Discovery;
-import com.megacrit.cardcrawl.cards.green.Alchemize;
-import com.megacrit.cardcrawl.cards.green.CorpseExplosion;
-import com.megacrit.cardcrawl.cards.purple.Blasphemy;
-import com.megacrit.cardcrawl.cards.purple.FollowUp;
-import com.megacrit.cardcrawl.cards.red.*;
-import com.megacrit.cardcrawl.cards.green.*;
-import com.megacrit.cardcrawl.cards.blue.*;
-import com.megacrit.cardcrawl.cards.colorless.SadisticNature;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.beyond.SecretPortal;
-import com.megacrit.cardcrawl.events.city.BackToBasics;
-import com.megacrit.cardcrawl.events.city.ForgottenAltar;
-import com.megacrit.cardcrawl.events.city.Ghosts;
-import com.megacrit.cardcrawl.events.shrines.GremlinWheelGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.potions.GhostInAJar;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
-import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import rorgmod.cards.*;
-import rorgmod.commands.*;
-import rorgmod.events.*;
-import rorgmod.monsters.*;
-import rorgmod.powers.NoPower;
-import rorgmod.relics.*;
+import rorgmod.cards.AbstractRorgCard;
+import rorgmod.helpers.ListHelper;
+import rorgmod.helpers.MetricHelper;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import static basemod.BaseMod.registerModBadge;
-import static basemod.BaseMod.removePotion;
 
 @SpireInitializer
-public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, PostInitializeSubscriber {
-//TODO : ADD ALL REMOVE/CHANGES IN THE NEW FORMAT, AND DEBUG
+public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditKeywordsSubscriber, EditStringsSubscriber, PostInitializeSubscriber, PostExhaustSubscriber, PostDrawSubscriber {
     public static Logger logger = LogManager.getLogger(RorgMod.class.getName());
-    private static UIStrings uistrings;
     private static final String ID = "rorgmod:Rorgmod";
     private static SpireConfig config;
-    public static String cardsToRemove[] = {
-            Scrape.ID,
-            Aggregate.ID,
-            Fusion.ID, // REWORKED
-            GoForTheEyes.ID, // REWORKED
-            Storm.ID, // REWORKED
-            ThunderStrike.ID, // REWORKED
-            Chaos.ID, // REWORKED
-            SearingBlow.ID, // REWORKED
-            Immolate.ID, // REWORKED
-            Warcry.ID,
-            WraithForm.ID,
-            CorpseExplosion.ID,
-            SneakyStrike.ID,
-            Catalyst.ID, // REWORKED
-            Apparition.ID,
-            Defragment.ID, // REWORKED
-            BiasedCognition.ID, // REWORKED
-            Leap.ID, // REWORKED
-            RipAndTear.ID,
-            BeamCell.ID,
-            SteamBarrier.ID,
-            AutoShields.ID, // REWORKED
-            Blasphemy.ID,
-            StormOfSteel.ID, // REWORKED
-            Claw.ID, // REWORKED
-            Accuracy.ID, // REWORKED
-            Reflex.ID, // REWORKED
-            PhantasmalKiller.ID, // REWORKED
-            FollowUp.ID, // REWORKED
-            Prepared.ID, // REWORKED
-            Slice.ID // REWORKED
-    };
-
-    public static String relicsToRemove[] = {
-            DeadBranch.ID,
-            EmptyCage.ID, // REWORKED
-            TinyHouse.ID,
-            Melange.ID,
-            DarkstonePeriapt.ID,
-            VioletLotus.ID,
-            IncenseBurner.ID,
-            TinyChest.ID,
-            CeramicFish.ID,
-            Matryoshka.ID
-    };
-
-    public static String eventsToRemove[] = {
-            Ghosts.ID,
-            GremlinWheelGame.ID, // REWORKED
-            ForgottenAltar.ID,
-            SecretPortal.ID
-    };
-
-    public static String potionToRemove[] = {
-            GhostInAJar.POTION_ID
-    };
-
-    public static CardChanges cardsToChange[] = {
-            new CardChanges(Reboot.ID, -1, null, AbstractCard.CardRarity.UNCOMMON),
-            new CardChanges(Alchemize.ID, -1, AbstractCard.CardColor.COLORLESS, null),
-            new CardChanges(SadisticNature.ID, -1, AbstractCard.CardColor.GREEN, null),
-            new CardChanges(Envenom.ID, 1, null, null),
-            new CardChanges(Discovery.ID, -1, null, AbstractCard.CardRarity.RARE)
-    };
-
-    public static RelicChanges relicsToChange[] = {
-            new RelicChanges(MummifiedHand.ID, AbstractRelic.RelicTier.RARE),
-            new RelicChanges(WristBlade.ID, AbstractRelic.RelicTier.RARE),
-            new RelicChanges(NinjaScroll.ID, AbstractRelic.RelicTier.SHOP),
-            new RelicChanges(Shovel.ID, AbstractRelic.RelicTier.UNCOMMON)
-    };
 
     public static boolean enableDebuffect;
     public static boolean enableBetaCards;
+    public static boolean markers;
+    public static boolean forceLoad;
 
     public RorgMod() {
         BaseMod.subscribe(this);
         Properties defaults = new Properties();
         defaults.setProperty("enableDebuffect", "false");
         defaults.setProperty("enableBetaCards", "false");
+        defaults.setProperty("markers", "false");
+        defaults.setProperty("forceLoad", "false");
         try {
             config = new SpireConfig("RRrroohrrRGHHhhh!!", "RorgModConfig", defaults);
         } catch (IOException e) {
@@ -159,6 +64,8 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         logger.info("RRrrohrRGHHhhh!!");
         enableDebuffect = config.getBool("enableDebuffect");
         enableBetaCards = config.getBool("enableBetaCards");
+        markers         = config.getBool("markers");
+        forceLoad       = config.getBool("forceLoad");
     }
 
     public static void initialize() {
@@ -168,172 +75,105 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
     @Override
     public void receivePostInitialize() {
         logger.info("RRrroohrrRGHHhhh!!");
-        uistrings = CardCrawlGame.languagePack.getUIString(ID);
-        String[] TEXT = uistrings.TEXT;
+        logger.info("CONFIG SETTING:");
+        logger.info("Enable Beta");
+        logger.info(enableBetaCards);
+        logger.info("Use Markers");
+        logger.info(markers);
+        logger.info("Force Loading");
+        logger.info(forceLoad);
+        final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
 
         // BADGES // CONFIGS
-
         ModPanel settingsPanel = new ModPanel();
 
-        ModLabeledToggleButton debuffect = new ModLabeledToggleButton(TEXT[2], 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, settingsPanel, label -> {}, button -> {
-            RorgMod.enableDebuffect = button.enabled;
-            RorgMod.config.setBool("enableDebuffect", enableDebuffect);
-            try {RorgMod.config.save();} catch (IOException e) {
-                logger.warn("Config save failed at:");
-                e.printStackTrace();
-            }
-        });
-        settingsPanel.addUIElement(debuffect);
+        addCheckBox("enableDebuffect", TEXT[2], 700f, settingsPanel);
+        addCheckBox("enableBetaCards", TEXT[3], 650f, settingsPanel);
+        addCheckBox("markers"        , TEXT[4], 600f, settingsPanel);
+        addCheckBox("forceLoad"      , TEXT[5], 550f, settingsPanel);
 
-        ModLabeledToggleButton BetaCards = new ModLabeledToggleButton(TEXT[3], 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, settingsPanel, label -> {}, button -> {
-            RorgMod.enableBetaCards = button.enabled;
-            RorgMod.config.setBool("enableBetaCards", enableBetaCards);
-            try {RorgMod.config.save();} catch (IOException e) {
-                logger.warn("Config save failed at:");
-                e.printStackTrace();
-            }
-        });
-        settingsPanel.addUIElement(BetaCards);
-
-        ModLabel label = new ModLabel(TEXT[4], 350.0f, 600.0f, settingsPanel, me -> {});
+        ModLabel label = new ModLabel(TEXT[6], 350.0f, 600.0f, settingsPanel, me -> {});
         settingsPanel.addUIElement(label);
 
         Texture badgeTexture = new Texture("rorgmod/badge.png");
         registerModBadge(badgeTexture, TEXT[0], "prodzpod", TEXT[1], settingsPanel);
 
         // OTHER ADDS
+        for (ListHelper.EventAdds   event   : ListHelper.eventsToAdd  ) BaseMod.addEvent         (event.id   , event.event);
+        for (ListHelper.MonsterAdds monster : ListHelper.monstersToAdd) BaseMod.addMonster       (monster.id , monster.getMonster);
+        for (ListHelper.CommandAdds command : ListHelper.commandsToAdd) ConsoleCommand.addCommand(command.key, command.command);
+    }
 
-        BaseMod.addMonster(WheelGremlin.ID, WheelGremlin::new);
-
-        BaseMod.addEvent(GremlinWheel.ID, GremlinWheel.class);
-
-        ConsoleCommand.addCommand("reward", Reward.class);
+    private void addCheckBox(final String field, String desc, final float ypos, ModPanel panel) {
+        panel.addUIElement(new ModLabeledToggleButton(desc, 350.0f, ypos, Settings.CREAM_COLOR, FontHelper.charDescFont, enableDebuffect, panel, label -> {}, button -> {
+            try {
+                RorgMod.class.getField(field).set(this, button.enabled);
+                config.setBool(field, RorgMod.class.getField(field).getBoolean(this));
+            } catch (NoSuchFieldException | IllegalAccessException e) { e.printStackTrace(); }
+            try { config.save(); } catch (IOException e) { e.printStackTrace(); }
+        }));
     }
 
     @Override
     public void receiveEditCards() {
-        final AbstractCard cards[] = {
-                new LooseScrews(),
-                new ZingZap(),
-                new FusionRework(),
-                new VentilationError(),
-                new SQLInjection(),
-                new Overcurrent(),
-                new Refrigerate(),
-                new Antivirus(),
-                new LRUCache(),
-                new CriticalSection(),
-                new Fragmentation(),
-                new Malware(),
-                new RadarScan(),
-                new SteadyAim(),
-                new Centralize(),
-                new StormRework(),
-                new Overheat(),
-                new HotSockets(),
-                new Biogeneration(),
-                new Volatility(),
-                new ThunderStrikeRework(),
-                new NeutronShower(),
-                new ChaosRework(),
-                new SearingBlowRework(),
-                new ImmolateRework(),
-                new Hexaburn(),
-                new CatalystRework(),
-                new BiasedCognitionRework(),
-                new LeapRework(),
-                new StormOfSteelRework(),
-                new AccuracyRework(),
-                new ReflexRework(),
-                new PhantasmalKillerRework(),
-                new FollowUpRework(),
-                new PreparedRework(),
-                new SliceRework(),
-                new FuseBlower(),
-                new BlackIce()
-        };
-
-        final AbstractCard cardsBeta[] = {
-                new DenialOfService(),
-                new AutoShieldsRework(),
-                new PropelledFlight(),
-                new PusherProps(),
-                new MetalCoating(),
-                new DefragmentRework(),
-                new ClawRework(),
-                new GoForTheEyesRework(),
-                new Shadowmeld()
-        };
-
-        for (AbstractCard card : cards) {
+        List<AbstractRorgCard> cards = ListHelper.cardsToAdd.stream().map(element -> {
+            try { return element.newInstance(); } catch (Exception ex) { ex.printStackTrace(); }
+            return null;
+        }).filter(Objects::nonNull).collect(Collectors.toList());
+        logger.info(cards.size() + " Cards added");
+        for (AbstractRorgCard card : cards) if (!card.BETA || enableBetaCards) {
+            if (card.BETA)              ListHelper.cardsInBeta.add(card.cardID);
+            if (card.REWORK_ID != null) ListHelper.cardsReworked.add(card.REWORK_ID);
             BaseMod.addCard(card);
-            UnlockTracker.unlockCard(card.cardID);
-        }
-
-        if (this.enableBetaCards) {
-            for (AbstractCard card : cardsBeta) {
-                BaseMod.addCard(card);
-                UnlockTracker.unlockCard(card.cardID);
-            }
+            UnlockTracker.addCard(card.ID);
         }
     }
 
     @Override
     public void receiveEditRelics() {
-        final AbstractRelic[] blueRelics = {
-            new LooseGear(),
-            new GlossyCoat(),
-            new CoolantMedium(),
-            new DataDiskRework(),
-            new DecayingCore(),
-            new CrookedMotherboard(),
-            new LiquidMercury()
-        };
-
-        for (AbstractRelic relic : blueRelics) {
-            BaseMod.addRelic(relic, RelicType.BLUE);
-            UnlockTracker.addRelic(relic.relicId);
+        List<ListHelper.PostRelicAdds> relics = ListHelper.relicsToAdd.stream().map(element -> {
+            try { return new ListHelper.PostRelicAdds(element); } catch (Exception ex) { ex.printStackTrace(); }
+            return null;
+        }).filter(Objects::nonNull).collect(Collectors.toList());
+        logger.info(relics.size() + " Relics added");
+        for (ListHelper.PostRelicAdds relic : relics) if (!relic.relic.BETA || enableBetaCards) {
+            if (relic.relic.BETA)              ListHelper.relicsInBeta.add(relic.relic.relicId);
+            if (relic.relic.REWORK_ID != null) ListHelper.relicsReworked.add(relic.relic.REWORK_ID);
+            BaseMod.addRelic(relic.relic, relic.type);
+            UnlockTracker.addRelic(relic.relic.relicId);
         }
-
-        BaseMod.addRelic(new EmptyCageRework(), RelicType.SHARED);
-        BaseMod.addRelic(new CrimsonLotus(), RelicType.PURPLE);
-
-        UnlockTracker.addRelic(EmptyCageRework.ID);
-        UnlockTracker.addRelic(CrimsonLotus.ID);
     }
 
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
 
-        String languageString = "rorgmod/strings/" + getLanguageString(Settings.language);
-        String keywordStrings = Gdx.files.internal(languageString + "/keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String keywordStrings = getEditStrings("keywords");
+
         Type typeToken = new TypeToken<Map<String, Keyword>>() {}.getType();
+        Map<String, Keyword> keywords = gson.fromJson(keywordStrings, typeToken);
 
-        Map<String, Keyword> keywords = (Map)gson.fromJson(keywordStrings, typeToken);
-
-        keywords.forEach((k,v)->{
-            // Keyword word = (Keyword)v;
-            logger.info("Adding Keyword - " + v.NAMES[0]);
-            BaseMod.addKeyword(v.NAMES, v.DESCRIPTION);
-        });
+        logger.info(keywords.size() + " Keywords Added");
+        keywords.forEach((k,v)-> BaseMod.addKeyword(v.NAMES, v.DESCRIPTION));
     }
 
     @Override
     public void receiveEditStrings() {
-        String languageString = "rorgmod/strings/" + getLanguageString(Settings.language);
-        String cardStrings = Gdx.files.internal(languageString + "/cards.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-        String relicStrings = Gdx.files.internal(languageString + "/relics.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-        String monsterStrings = Gdx.files.internal(languageString + "/monsters.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
-        String powerStrings = Gdx.files.internal(languageString + "/powers.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
-        String eventStrings = Gdx.files.internal(languageString + "/events.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
-        String uiStrings = Gdx.files.internal(languageString + "/ui.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+        loadStrings(CardStrings   .class, "cards");
+        loadStrings(RelicStrings  .class, "relics");
+        loadStrings(PotionStrings .class, "potions");
+        loadStrings(EventStrings  .class, "events");
+        loadStrings(MonsterStrings.class, "monsters");
+        loadStrings(PowerStrings  .class, "powers");
+        loadStrings(UIStrings     .class, "ui");
+    }
+
+    private void loadStrings(Class<?> strings, String jsonPath) {
+        BaseMod.loadCustomStrings(strings, getEditStrings(jsonPath));
+    }
+
+    private String getEditStrings(String jsonPath) {
+        return Gdx.files.internal("rorgmod/strings/" + getLanguageString(Settings.language) + "/" + jsonPath + ".json").readString(String.valueOf(StandardCharsets.UTF_8));
     }
 
     private String getLanguageString(Settings.GameLanguage language) {
@@ -345,30 +185,21 @@ public class RorgMod implements EditCardsSubscriber, EditRelicsSubscriber, EditK
         }
     }
 
+    @Override
+    public void receivePostExhaust(AbstractCard abstractCard) {
+        MetricHelper.totalExhaustedThisTurn++;
+    }
+
+    @Override
+    public void receivePostDraw(AbstractCard abstractCard) {
+        for (ListHelper.CardChanges change : ListHelper.cardsToTweak)
+            if (abstractCard.cardID.equals(change.ID))
+                if (change.REDRAW_FOR_CURSES) {
+//                    RorgMod.logger.info("curse debug: redraw triggered");
+                    AbstractDungeon.actionManager.addToTop(new DrawCardAction(1));
+                }
+    }
+
     // these used to be a "intangible to NoPower" subscriber. but now that I'm 400% sure all source of intangible is removed/reworked, there is no need.
     // modded source of intangible can do whatever /shrug
-
-    public static class CardChanges {
-        public String ID = null;
-        public int COST = -1;
-        public AbstractCard.CardColor COLOR = null;
-        public AbstractCard.CardRarity RARITY = null;
-
-        public CardChanges(String ID, int COST, AbstractCard.CardColor COLOR, AbstractCard.CardRarity RARITY) {
-            this.ID = ID;
-            this.COST = COST;
-            this.COLOR = COLOR;
-            this.RARITY = RARITY;
-        }
-    }
-
-    public static class RelicChanges {
-        public String ID = null;
-        public AbstractRelic.RelicTier tier = null;
-
-        public RelicChanges(String ID, AbstractRelic.RelicTier tier) {
-            this.ID = ID;
-            this.tier = tier;
-        }
-    }
 }

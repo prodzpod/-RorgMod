@@ -11,12 +11,13 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class PusherProps extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Pusher Props";
+    public static final String ID = "rorgmod:Pusher Props";
 
     public PusherProps() {
-        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setAttack(8, 2);
         setMagic(2,1);
+        BETA = true;
     }
 
     @Override

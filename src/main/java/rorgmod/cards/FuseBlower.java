@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class FuseBlower extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Fuse Blower";
+    public static final String ID = "rorgmod:Fuse Blower";
 
     public FuseBlower() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
         setCostUpgrade();
     }
 

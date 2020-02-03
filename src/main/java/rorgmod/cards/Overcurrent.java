@@ -7,11 +7,12 @@ import rorgmod.powers.OvercurrentPower;
 
 public class Overcurrent extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Overcurrent";
+    public static final String ID = "rorgmod:Overcurrent";
 
     public Overcurrent() {
-        super("rorgmod:Overcurrent", DEFAULT_IMG_PATH_SKILL, 0, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, "rorgmod/cards/Overcurrent.png", 0, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF);
         setMagic(3,0);
+        setExhaust();
         setCustomUpgrade();
     }
 

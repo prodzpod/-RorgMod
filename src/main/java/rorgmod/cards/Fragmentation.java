@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Fragmentation extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Fragmentation";
+    public static final String ID = "rorgmod:Fragmentation";
 
     public Fragmentation() {
-        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ALL);
+        super(ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ALL);
         setAttack(5, 2);
     }
 

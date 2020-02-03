@@ -10,11 +10,12 @@ import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 
 public class PropelledFlight extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Propelled Flight";
+    public static final String ID = "rorgmod:Propelled Flight";
 
     public PropelledFlight() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 2, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, DEFAULT_IMG_PATH_SKILL, 2, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
         setBlock(6, 2);
+        BETA = true;
     }
 
     @Override

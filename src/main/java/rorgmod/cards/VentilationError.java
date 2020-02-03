@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class VentilationError extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Ventilation Error";
+    public static final String ID = "rorgmod:Ventilation Error";
 
     public VentilationError() {
         super("rorgmod:Ventilation Error", DEFAULT_IMG_PATH_SKILL, 2, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);

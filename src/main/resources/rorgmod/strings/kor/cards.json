@@ -29,8 +29,8 @@
   },
   "rorgmod:Overcurrent": {
     "NAME": "과전류",
-    "DESCRIPTION": "구체 슬롯을 !M! 개 얻습니다. 3턴 후, 구체 슬롯을 !M! 개 잃습니다.",
-    "UPGRADE_DESCRIPTION": "구체 슬롯을 !M! 개 얻습니다. 3턴 후, 첫 3개 구체를 발현한 후 구체 슬롯을 !M! 개 잃습니다."
+    "DESCRIPTION": "구체 슬롯을 !M! 개 얻습니다. 3턴 후, 구체 슬롯을 !M! 개 잃습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "구체 슬롯을 !M! 개 얻습니다. 3턴 후, 첫 3개 구체를 발현한 후 구체 슬롯을 !M! 개 잃습니다. NL 소멸."
   },
   "rorgmod:Refrigerate": {
     "NAME": "냉장",
@@ -93,7 +93,7 @@
     "NAME": "핫 소켓",
     "DESCRIPTION": "가장 오른 쪽 구체를 발현합니다. 무작위 적에게 빈 구체 슬롯 갯수만큼 피해를 !D! 줍니다.",
     "EXTENDED_DESCRIPTION": [
-      " NL (피해를 !D! x !M! 줍니다)."
+      " NL (피해를 !D! 만큼 !M! 번 줍니다)."
     ]
   },
   "rorgmod:Metal Coating": {
@@ -192,8 +192,7 @@
   },
   "rorgmod:Phantasmal Killer": {
     "NAME": "환영 살인마",
-    "DESCRIPTION": "다음 턴 동안 공격 카드가 두 배의 피해를 줍니다.",
-    "UPGRADE_DESCRIPTION": "다음 턴에 원하는 만큼 카드를 버리고 그 만큼 새로운 카드를 뽑습니다. 다음 턴 동안 공격 카드가 두 배의 피해를 줍니다."
+    "DESCRIPTION": "다음 턴에 도박 합니다. 다음 턴 동안 공격 카드가 두 배의 피해를 줍니다."
   },
   "rorgmod:Reflex": {
     "NAME": "반사 신경",
@@ -216,5 +215,78 @@
   "rorgmod:Slice": {
     "NAME": "칼질",
     "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "rorgmod:Tools of the Trade": {
+    "NAME": "작업 도구",
+    "DESCRIPTION": "내 턴 시작 시 카드를 1 장 뽑고 1 장 버립니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 내 턴 시작 시 카드를 1 장 뽑고 1 장 버립니다."
+  },
+  "rorgmod:Sentinel": {
+    "NAME": "감시병",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴에 소멸한 카드가 있으면 [R] [R] 를 얻습니다."
+  },
+  "rorgmod:Wraith Form": {
+    "NAME": "유령의 형상 A",
+    "DESCRIPTION": "매 턴마다 처음 버린 카드를 냅니다."
+  },
+  "rorgmod:Wraith Form 2": {
+    "NAME": "유령의 형상 B",
+    "DESCRIPTION": "카드를 버릴 때마다 방어도를 !M! 얻고 임의의 적에게 피해를 !M! 줍니다."
+  },
+  "rorgmod:Tendon Slice": {
+    "NAME": "힘줄 자르기",
+    "DESCRIPTION": "피해를 !D! 줍니다. 적이 취약 할 시, 피해를 !M! 더 줍니다."
+  },
+  "Decay": {
+    "NAME": "부패",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 내 턴 종료 시 피해를 2 입습니다."
+  },
+  "Doubt": {
+    "NAME": "의심",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 내 턴 종료 시 약화를 1 받습니다."
+  },
+  "Normality": {
+    "NAME": "규칙 준수",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 손에 있다면 이번 턴 동안 카드를 3 장까지만 사용할 수 있습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "이번 턴에 카드를 #r3 #r장까지만 사용할 수 있어.",
+      "다시 뽑기. NL 사용불가. NL 한 턴에 ",
+      " 장의 카드만 사용할 수 있습니다.",
+      " 장의 카드만 사용할 수 있습니다. NL 지금까지 카드를 ",
+      " 장 사용했습니다.",
+      " 장 사용했습니다."
+    ]
+  },
+  "Pain": {
+    "NAME": "고통",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 손에 있는 동안 NL 다른 카드를 사용할 때마다 체력을 1 씩 잃습니다."
+  },
+  "Regret": {
+    "NAME": "후회",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 내 턴 종료 시 손에 있는 카드의 수만큼 체력을 잃습니다."
+  },
+  "Shame": {
+    "NAME": "수치",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 턴 종료 시 손상을 1 받습니다."
+  },
+  "rorgmod:Injury": {
+    "NAME": "상처",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 이 카드를 뽑으면 소멸하면서 포박을 5 받습니다."
+  },
+  "rorgmod:Feeble": {
+    "NAME": "박약",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 이 카드를 뽑으면 취약을 1 받습니다."
+  },
+  "rorgmod:Ache": {
+    "NAME": "질병",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 보존."
+  },
+  "rorgmod:Fever": {
+    "NAME": "고열",
+    "DESCRIPTION": "다시 뽑기. NL 사용불가. NL 손에 있는 동안 [E]를 소모할 때마다 체력을 소모량만큼 잃습니다."
+  },
+  "rorgmod:Hardcode": {
+    "NAME": "하드코딩",
+    "DESCRIPTION": "잠금을 !M! 받습니다. 구체는 !M! 턴동안 발현할 때 마다 두번 발현합니다. NL 소멸."
   }
 }

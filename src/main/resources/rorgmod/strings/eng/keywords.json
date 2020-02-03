@@ -1,1 +1,20 @@
-{}
+{
+  "LOCKDOWN": {
+    "NAMES": [
+      "lockdown"
+    ],
+    "DESCRIPTION": "Your #yOrbs does not trigger passively in lockdown."
+  },
+  "REDRAW": {
+    "NAMES": [
+      "redraw"
+    ],
+    "DESCRIPTION": "Upon drawing this card, #yDraw #b1 more card."
+  },
+  "GAMBLE": {
+    "NAMES": [
+      "gamble"
+    ],
+    "DESCRIPTION": "#yDiscard as much card as you want, then #yDraw that many cards."
+  }
+}

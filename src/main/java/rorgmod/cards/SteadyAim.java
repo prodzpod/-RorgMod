@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.powers.LockOnPower;
 
 public class SteadyAim extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Steady Aim";
+    public static final String ID = "rorgmod:Steady Aim";
 
     public SteadyAim() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, "rorgmod/cards/SteadyAim.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
         setBlock(4, 1);
         setMagic(2, 1);
     }

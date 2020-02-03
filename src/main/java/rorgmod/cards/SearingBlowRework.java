@@ -2,22 +2,22 @@ package rorgmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.SearingBlowEffect;
 
 public class SearingBlowRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Searing Blow";
+    public static final String ID = "rorgmod:Searing Blow";
 
     public SearingBlowRework() { this(0); }
 
     public SearingBlowRework(int upgrades) {
-        super(CARD_ID, "rorgmod/cards/searing_blow.png", 2, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, "rorgmod/cards/searing_blow.png", 2, CardType.ATTACK, CardColor.RED, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setAttack(16, 4);
         this.timesUpgraded = 0;
+        REWORK_ID = SearingBlow.ID;
     }
 
     @Override

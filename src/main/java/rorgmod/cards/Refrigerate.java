@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class Refrigerate extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Refrigerate";
+    public static final String ID = "rorgmod:Refrigerate";
 
     public Refrigerate() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, "rorgmod/cards/Refridgerate.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
         setMagic(2, 1);
     }
 

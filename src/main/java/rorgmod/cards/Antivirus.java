@@ -9,11 +9,11 @@ import java.util.Iterator;
 
 public class Antivirus extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Antivirus";
+    public static final String ID = "rorgmod:Antivirus";
 
     public Antivirus() {
-        super(CARD_ID, "rorgmod/cards/anti_virus.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF);
-        setBlock(7, 2);
+        super(ID, "rorgmod/cards/anti_virus.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        setBlock(5, 3);
     }
 
     @Override

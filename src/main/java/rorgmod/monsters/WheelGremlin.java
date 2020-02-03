@@ -1,5 +1,6 @@
 package rorgmod.monsters;
 
+import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.FastShakeAction;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class WheelGremlin extends AbstractMonster {
+public class WheelGremlin extends CustomMonster {
     public static final String ID = "rorgmod:Wheel Gremlin";
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
@@ -73,13 +74,10 @@ public class WheelGremlin extends AbstractMonster {
     }
 
     private void playDeathSfx() {
-        int roll = MathUtils.random(2);
-        if (roll == 0) {
-            CardCrawlGame.sound.play("VO_GREMLINDOPEY_2A");
-        } else if (roll == 1) {
-            CardCrawlGame.sound.play("VO_GREMLINDOPEY_2B");
-        } else {
-            CardCrawlGame.sound.play("VO_GREMLINDOPEY_2C");
+        switch (MathUtils.random(2)) {
+            case 0: CardCrawlGame.sound.play("VO_GREMLINDOPEY_2A"); break;
+            case 1: CardCrawlGame.sound.play("VO_GREMLINDOPEY_2B"); break;
+            case 2: CardCrawlGame.sound.play("VO_GREMLINDOPEY_2C"); break;
         }
 
     }
@@ -93,7 +91,7 @@ public class WheelGremlin extends AbstractMonster {
         if (this.lastTwoMoves((byte)1)) {
             this.setMove(MOVES[1], (byte)2, Intent.DEBUFF);
         } else {
-            this.setMove(MOVES[0], (byte)1, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base, AbstractDungeon.actNum, true);
+            this.setMove(MOVES[0], (byte)1, Intent.ATTACK, (this.damage.get(0)).base, AbstractDungeon.actNum, AbstractDungeon.actNum != 1);
         }
     }
 }

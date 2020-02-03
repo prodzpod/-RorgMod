@@ -3,8 +3,10 @@
     "TEXT": [
       "RRrroohrrRRGHhhh!!",
       "loomse scroomse",
-      "Enable Self Debuff Defect (Debuffect, BETA - not recommended)",
-      "Enable Beta Cards",
+      "Enable Nothing (for now, alternative flavor of Rorgfect coming)",
+      "Enable Beta Cards - 2nd League/Futures cards. Might be more broken/unbalanced than the normal ones.",
+      "Use Markers to denote beta/tweaked/reworked cards",
+      "Overwrite other mod's changes (by default, any changes made will be 'yielded' to other mods.)",
       "Must restart game to apply changes"
     ]
   }

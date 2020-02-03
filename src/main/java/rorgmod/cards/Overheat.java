@@ -6,11 +6,12 @@ import rorgmod.powers.OverheatPower;
 
 public class Overheat extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Overheat";
+    public static final String ID = "rorgmod:Overheat";
 
     public Overheat() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setMagic(1, 1);
+        BETA = true;
     }
 
     @Override

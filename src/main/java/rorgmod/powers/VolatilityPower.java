@@ -19,8 +19,8 @@ public class VolatilityPower extends AbstractRorgPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isMonster) {
-        if (!isMonster) procced = true;
+    public void endOfTurn() {
+        procced = true;
     }
 
     @Override

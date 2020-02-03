@@ -6,13 +6,14 @@ import rorgmod.actions.NeutronShowerAction;
 
 public class NeutronShower extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Neutron Shower";
+    public static final String ID = "rorgmod:Neutron Shower";
 
     public NeutronShower() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
+        super(ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
         setExhaust();
         setNonExhaustUponUpgrade();
         setCustomUpgrade();
+        BETA = true;
     }
 
     @Override

@@ -1,17 +1,19 @@
 package rorgmod.cards;
 
 import com.megacrit.cardcrawl.actions.unique.DoublePoisonAction;
+import com.megacrit.cardcrawl.cards.green.Catalyst;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class CatalystRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Catalyst";
+    public static final String ID = "rorgmod:Catalyst";
 
     public CatalystRework() {
-        super(CARD_ID, "rorgmod/cards/catalyst.png", 2, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, "rorgmod/cards/catalyst.png", 2, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setCostUpgrade();
         setExhaust();
+        REWORK_ID = Catalyst.ID;
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.FollowUp;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,11 +17,12 @@ import java.util.ArrayList;
 
 public class FollowUpRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Follow-Up";
+    public static final String ID = "rorgmod:Follow-Up";
 
     public FollowUpRework() {
-        super(CARD_ID, "rorgmod/cards/follow_up.png", 1, CardType.ATTACK, CardColor.PURPLE, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, "rorgmod/cards/follow_up.png", 1, CardType.ATTACK, CardColor.PURPLE, CardRarity.COMMON, CardTarget.ENEMY);
         setAttack(7, 4);
+        REWORK_ID = FollowUp.ID;
     }
 
     @Override

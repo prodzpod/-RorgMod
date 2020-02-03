@@ -1,22 +1,22 @@
 package rorgmod.cards;
 
 import com.megacrit.cardcrawl.actions.defect.NewThunderStrikeAction;
+import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 
-import java.util.Iterator;
-
 public class ThunderStrikeRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Thunder Strike";
+    public static final String ID = "rorgmod:Thunder Strike";
 
     public ThunderStrikeRework() {
-        super(CARD_ID, "rorgmod/cards/thunder_strike.png", 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL_ENEMY);
+        super(ID, "rorgmod/cards/thunder_strike.png", 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL_ENEMY);
         setAttack(7, 2);
         this.tags.add(CardTags.STRIKE);
+        REWORK_ID = ThunderStrike.ID;
     }
 
     public void applyPowers() {

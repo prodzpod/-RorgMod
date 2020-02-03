@@ -32,26 +32,11 @@ public class GoForTheEyesPower extends AbstractRorgPower {
             } catch (NoSuchMethodException e) {
                 try {
                     newPower = power.getClass().getConstructor(AbstractCreature.class, int.class, boolean.class).newInstance(target, amount, false);
-                } catch (InstantiationException ex) {
-                    RorgMod.logger.error("Error Occured at GoForTheEyesPower");
-                    RorgMod.logger.error(ex);
-                } catch (IllegalAccessException ex) {
-                    RorgMod.logger.error("Error Occured at GoForTheEyesPower");
-                    RorgMod.logger.error(ex);
-                } catch (InvocationTargetException ex) {
-                    RorgMod.logger.error("Error Occured at GoForTheEyesPower");
-                    RorgMod.logger.error(ex);
-                } catch (NoSuchMethodException ex) {
+                } catch (Exception ex) {
                     RorgMod.logger.error("Error Occured at GoForTheEyesPower");
                     RorgMod.logger.error(ex);
                 }
-            } catch (IllegalAccessException e) {
-                RorgMod.logger.error("Error Occured at GoForTheEyesPower");
-                RorgMod.logger.error(e);
-            } catch (InstantiationException e) {
-                RorgMod.logger.error("Error Occured at GoForTheEyesPower");
-                RorgMod.logger.error(e);
-            } catch (InvocationTargetException e) {
+            } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
                 RorgMod.logger.error("Error Occured at GoForTheEyesPower");
                 RorgMod.logger.error(e);
             }

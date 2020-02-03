@@ -103,13 +103,53 @@
   "rorgmod:Storm of Steel": {
     "NAME": "강철의 폭풍",
     "DESCRIPTIONS": [
-      "카드를 버릴 때 마다 #y단도 를 얻습니다."
+      "카드를 버릴 때 마다 #y단도 를 #b",
+      " 개 얻습니다."
     ]
   },
   "rorgmod:Storm of Steel+": {
     "NAME": "강철의 폭풍",
     "DESCRIPTIONS": [
-      "카드를 버릴 때 마다 #y단도+ 를 얻습니다."
+      "카드를 버릴 때 마다 #y단도+ 를 #b",
+      " 개 얻습니다."
+    ]
+  },
+  "rorgmod:Wraith Form": {
+    "NAME": "유령의 형상 A",
+    "DESCRIPTIONS": [
+      "매 턴, 처음 #b",
+      " 개의 #y버린 카드는 내집니다."
+    ]
+  },
+  "rorgmod:Wraith Form 2": {
+    "NAME": "유령의 형상 B",
+    "DESCRIPTIONS": [
+      "카드를 #y버릴 때마다 임의의 적에게 #y피해를 #b",
+      " 주고 #y방어도를 #b",
+      " 얻습니다."
+    ]
+  },
+  "rorgmod:Lockdown": {
+    "NAME": "잠금",
+    "DESCRIPTIONS": [
+      "턴 종료 시, #b",
+      " 턴동안 #y구체의 지속 효과가 발동되지 않습니다."
+    ]
+  },
+  "rorgmod:Hardcode": {
+    "NAME": "하드코딩",
+    "DESCRIPTIONS": [
+      "구체는 #b",
+      " 턴동안 #y발현할 때 마다 #b두 번 #y발현합니다."
+    ]
+  },
+  "rorgmod:Immunity": {
+    "NAME": "면역",
+    "DESCRIPTIONS": [
+      "이번 턴 사용한 공격 카드 한 장당, ",
+      " 는 #y공격 카드로 인한 피해를 #b10% 더 받습니다.",
+      " ( #b",
+      "% 피해를 받습니다.)"
     ]
   }
 }

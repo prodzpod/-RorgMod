@@ -4,12 +4,13 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.DataDisk;
 
 public class DataDiskRework extends AbstractRorgRelic {
     public static String ID = "rorgmod:Data Disk";
-    private static String IMG_PATH = "rorgmod/relics/dataDisk.png";
     public DataDiskRework() {
-        super(ID, IMG_PATH, -1, RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, "rorgmod/relics/dataDisk.png", -1, RelicTier.UNCOMMON, LandingSound.FLAT);
+        REWORK_ID = DataDisk.ID;
     }
 
     @Override

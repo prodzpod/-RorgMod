@@ -50,6 +50,9 @@ public class AbstractRorgCard extends CustomCard {
     public CardRarity RARITY = DEFAULT_RARITY;
     public CardTarget TARGET = DEFAULT_TARGET;
 
+    public String REWORK_ID = null;
+    public boolean BETA = false;
+
     public int ATTACK = 0;
     public int ATTACK_UPGRADE = 0;
     public int BLOCK = 0;
@@ -60,6 +63,8 @@ public class AbstractRorgCard extends CustomCard {
     public boolean DO_COST_UPGRADE = false;
     public boolean CUSTOM_UPGRADE = false;
     public boolean NON_EXHAUST_UPON_UPGRADE = false;
+    public boolean INNATE_UPON_UPGRADE = false;
+    public boolean RETAIN_UPON_UPGRADE = false;
 
     public AbstractRorgCard() {
         this(DEFAULT_ID, DEFAULT_IMG_PATH_SKILL, DEFAULT_COST, DEFAULT_TYPE, DEFAULT_COLOR, DEFAULT_RARITY, DEFAULT_TARGET);
@@ -133,6 +138,14 @@ public class AbstractRorgCard extends CustomCard {
         this.costForTurn = -2;
     }
 
+    public void setInnate() { this.isInnate = true; }
+
+    public void upgradeToInnate() { this.INNATE_UPON_UPGRADE = true; }
+
+    public void setRetain() { this.selfRetain = true; }
+
+    public void upgradeToRetain() { this.RETAIN_UPON_UPGRADE = true; }
+
     public void setCustomUpgrade() {
         this.CUSTOM_UPGRADE = true;
     }
@@ -145,11 +158,13 @@ public class AbstractRorgCard extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            if (ATTACK_UPGRADE != 0) upgradeDamage(ATTACK_UPGRADE);
-            if (BLOCK_UPGRADE != 0) upgradeBlock(BLOCK_UPGRADE);
-            if (MAGIC_UPGRADE != 0) upgradeMagicNumber(MAGIC_UPGRADE);
-            if (DO_COST_UPGRADE) upgradeBaseCost(this.COST - 1);
-            if (NON_EXHAUST_UPON_UPGRADE) this.exhaust = false;
+            if (ATTACK_UPGRADE != 0) upgradeDamage     (ATTACK_UPGRADE);
+            if (BLOCK_UPGRADE  != 0) upgradeBlock      (BLOCK_UPGRADE);
+            if (MAGIC_UPGRADE  != 0) upgradeMagicNumber(MAGIC_UPGRADE);
+            if (DO_COST_UPGRADE)     upgradeBaseCost   (this.COST - 1);
+            if (NON_EXHAUST_UPON_UPGRADE) this.exhaust    = false;
+            if (INNATE_UPON_UPGRADE)      this.isInnate   = true;
+            if (RETAIN_UPON_UPGRADE)      this.selfRetain = true;
             if (CUSTOM_UPGRADE) {
                 this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
                 this.initializeDescription();

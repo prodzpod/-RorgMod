@@ -113,7 +113,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   * (Gain 1 Orb slot.) Channel 1 Plasma.
 * **Immolate** (2 ![Energy](http://tinyurl.com/IroncladEnergy), Attack, Rare, Red)
   * Deal 20(26) damage. Shuffle a Burn into your *draw* pile.
-* **Leap** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Uncommon, Blue)
+* **Leap** (1 ![Energy](http://tinyurl.com/DefectEnergy), Skill, Common, Blue)
   * Gain 9(12) Block. Next turn, draw 1 additional card.
 * **Phantasmal Killer** (1 ![Energy](http://tinyurl.com/SilentsEnergy), Skill, Rare, Green)
   * (At the start of your next turn, Discard any number of cards from your hand, then draw that many cards.) Next turn, your Attacks deal double damage.

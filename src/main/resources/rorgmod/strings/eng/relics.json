@@ -69,5 +69,33 @@
     "DESCRIPTIONS": [
       "Whenever you enter #yWrath, gain [E] ."
     ]
+  },
+  "rorgmod:Black Star": {
+    "NAME": "Black Star",
+    "FLAVOR": "Originally discovered in the town of the serpent, beside a solitary candle.",
+    "DESCRIPTIONS": [
+      "ALL drops from #yElites are #ydoubled."
+    ]
+  },
+  "rorgmod:Ceramic Fish": {
+    "NAME": "Ceramic Fish",
+    "FLAVOR": "Meticulously painted, these fish were revered to bring great fortune.",
+    "DESCRIPTIONS": [
+      "#bQuadruple the #ygold gained from #yElites."
+    ]
+  },
+  "rorgmod:The Boot": {
+    "NAME": "The Boot",
+    "FLAVOR": "When wound up, the boot grows larger in size.",
+    "DESCRIPTIONS": [
+      "Whenever you would deal #b5 or less unblocked attack damage, increase it to #b6."
+    ]
+  },
+  "rorgmod:Short Circuit": {
+    "NAME": "Short Circuit",
+    "FLAVOR": "Limited in capacity, but makes up for this in potency.",
+    "DESCRIPTIONS": [
+      "#yRetain your hand on the first turn of each combat."
+    ]
   }
 }

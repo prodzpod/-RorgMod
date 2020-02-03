@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class CardBoilerplate extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:";
+    public static final String ID = "rorgmod:";
 
     public CardBoilerplate() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
     }
 
     @Override

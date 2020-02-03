@@ -70,5 +70,33 @@
     "DESCRIPTIONS": [
       "#y진노할 경우, [E] 를 얻습니다."
     ]
+  },
+  "rorgmod:Black Star": {
+    "NAME": "검은 별",
+    "FLAVOR": "뱀 마을의 고독히 서 있는 촛불 옆에서 발견되었습니다.",
+    "DESCRIPTIONS": [
+      "#y엘리트 격파 시 보상을 두배로 늘립니다."
+    ]
+  },
+  "rorgmod:Ceramic Fish": {
+    "NAME": "물고기 도자기",
+    "FLAVOR": "세심하게 색칠된 이 물고기들은, 행운을 불러온다며 모셔지고 있었습니다.",
+    "DESCRIPTIONS": [
+      "#y엘리트 격파 시 #y골드를 #b4 배 더 얻습니다."
+    ]
+  },
+  "rorgmod:The Boot": {
+    "NAME": "장화",
+    "FLAVOR": "분위기가 고조될 때마다 장화의 크기가 커집니다.",
+    "DESCRIPTIONS": [
+      "막히지 않은 #y피해를 #b5 이하로 줄 때마다 피해량을 #b6 로 증가시킵니다."
+    ]
+  },
+  "rorgmod:Short Circuit": {
+    "NAME": "짧은 회로",
+    "FLAVOR": "이 회로는 길이 때문에 한 사이클을 다하지 못한다.",
+    "DESCRIPTIONS": [
+      "매 전투, 첫 턴에 손패를 #y보존합니다."
+    ]
   }
 }

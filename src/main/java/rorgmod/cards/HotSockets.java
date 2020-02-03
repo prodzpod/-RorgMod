@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 
 public class HotSockets extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Hot Sockets";
+    public static final String ID = "rorgmod:Hot Sockets";
 
     public HotSockets() {
-        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);
+        super(ID, DEFAULT_IMG_PATH_ATTACK, 1, CardType.ATTACK, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL);
         setAttack(4,2);
     }
 

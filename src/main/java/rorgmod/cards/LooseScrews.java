@@ -7,10 +7,10 @@ import rorgmod.powers.LooseScrewsPower;
 
 public class LooseScrews extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Loose Screws";
+    public static final String ID = "rorgmod:Loose Screws";
 
     public LooseScrews() {
-        super(CARD_ID, "rorgmod/cards/loose_screws.png", 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF_AND_ENEMY);
+        super(ID, "rorgmod/cards/loose_screws.png", 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF_AND_ENEMY);
         setAttack(12, 4);
         setExhaust();
     }

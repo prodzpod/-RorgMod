@@ -6,11 +6,12 @@ import rorgmod.powers.ShadowmeldPower;
 
 public class Shadowmeld extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Shadowmeld";
+    public static final String ID = "rorgmod:Shadowmeld";
 
     public Shadowmeld() {
-        super(CARD_ID, DEFAULT_IMG_PATH_POWER, 2, CardType.POWER, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
+        super(ID, DEFAULT_IMG_PATH_POWER, 2, CardType.POWER, CardColor.BLUE, CardRarity.RARE, CardTarget.SELF);
         setCostUpgrade();
+        BETA = true;
     }
 
     @Override

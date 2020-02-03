@@ -6,12 +6,13 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 
 public class MetalCoating extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Metal Coating";
+    public static final String ID = "rorgmod:Metal Coating";
 
     public MetalCoating() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, DEFAULT_IMG_PATH_SKILL, 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
         setBlock(15, 3);
         setMagic(3, -1);
+        BETA = true;
     }
 
     @Override

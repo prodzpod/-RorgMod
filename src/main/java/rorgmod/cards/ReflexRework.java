@@ -2,21 +2,23 @@ package rorgmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.cards.green.Reflex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ReflexRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Reflex";
+    public static final String ID = "rorgmod:Reflex";
 
     public ReflexRework() {
-        super(CARD_ID, "rorgmod/cards/reflex.png", -2, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, "rorgmod/cards/reflex.png", -2, CardType.SKILL, CardColor.GREEN, CardRarity.UNCOMMON, CardTarget.SELF);
         setMagic(2, 0);
         setUnplayable();
         setExhaust();
         setNonExhaustUponUpgrade();
         setCustomUpgrade();
+        REWORK_ID = Reflex.ID;
     }
 
     @Override

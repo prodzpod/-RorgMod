@@ -1,57 +1,49 @@
 package rorgmod.patches;
 
-import basemod.BaseMod;
-import com.badlogic.gdx.Game;
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.TransformCardInHandAction;
 import com.megacrit.cardcrawl.actions.unique.BurnIncreaseAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.characters.Ironclad;
-import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.cards.blue.EchoForm;
+import com.megacrit.cardcrawl.cards.purple.DevaForm;
+import com.megacrit.cardcrawl.cards.red.DemonForm;
+import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.exordium.Mushrooms;
-import com.megacrit.cardcrawl.helpers.PotionHelper;
-import com.megacrit.cardcrawl.helpers.RelicLibrary;
-import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.city.ShelledParasite;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.relics.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.screens.custom.CustomModeScreen;
+import com.megacrit.cardcrawl.trials.CustomTrial;
 import com.megacrit.cardcrawl.ui.buttons.ProceedButton;
-import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.unlock.cards.ironclad.ImmolateUnlock;
-import com.megacrit.cardcrawl.unlock.cards.silent.CatalystUnlock;
-import com.megacrit.cardcrawl.unlock.cards.silent.CorpseExplosionUnlock;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import javassist.CannotCompileException;
-import javassist.CtBehavior;
 import javassist.NotFoundException;
 import javassist.expr.ExprEditor;
 import javassist.expr.Instanceof;
-import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
-import org.apache.logging.log4j.Logger;
 import rorgmod.RorgMod;
 import rorgmod.cards.Hexaburn;
-import rorgmod.events.GremlinWheel;
-import rorgmod.powers.AbstractRorgPower;
+import rorgmod.cards.WraithFormAltRework;
+import rorgmod.cards.WraithFormRework;
+import rorgmod.events.GremlinWheelRework;
 import rorgmod.powers.OverheatPower;
-import rorgmod.relics.AbstractRorgRelic;
+import rorgmod.relics.ShortCircuit;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Arrays;
 
+@SuppressWarnings("unused")
 public class OtherPatches {
     @SpirePatch(
             clz= Lightning.class,
@@ -139,7 +131,7 @@ public class OtherPatches {
                     try {
                         if (i.getType().getName().equals(Mushrooms.class.getName())) {
                             RorgMod.logger.info("Finding and gremlin wheel event proceed button");
-                            i.replace("$_ = $proceed($$) || currentRoom.event instanceof " + GremlinWheel.class.getName() + ";");
+                            i.replace("$_ = $proceed($$) || currentRoom.event instanceof " + GremlinWheelRework.class.getName() + ";");
                         }
                     } catch (NotFoundException e) {
                         RorgMod.logger.error("Combat proceed button patch broken.", e);
@@ -149,4 +141,32 @@ public class OtherPatches {
         }
     }
 
+    @SpirePatch(clz= Defect.class, method= "getStartingRelics")
+    public static class ShortCircuitInit {
+        public static SpireReturn<ArrayList<String>> Prefix() {
+            ArrayList<String> retVal = new ArrayList<String>() {{
+                add(ShortCircuit.ID);
+            }};
+            UnlockTracker.markRelicAsSeen(ShortCircuit.ID);
+            return SpireReturn.Return(retVal);
+        }
+    }
+
+    @SpirePatch(clz= CustomModeScreen.class, method= "addNonDailyMods")
+    public static class TrueFormChange {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(NewExpr i) throws CannotCompileException {
+                    if (i.getClassName().equals(String[].class.getName())) {
+                        i.replace("$_ = new String[] {" + DemonForm.ID
+                                + ", " + WraithFormRework.ID
+                                + ", " + WraithFormAltRework.ID
+                                + ", " + EchoForm.ID
+                                + ", " + DevaForm.ID + "};");
+                    }
+                }
+            };
+        }
+    }
 }

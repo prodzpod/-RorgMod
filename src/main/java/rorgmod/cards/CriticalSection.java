@@ -8,10 +8,10 @@ import rorgmod.RorgMod;
 
 public class CriticalSection extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Critical Section";
+    public static final String ID = "rorgmod:Critical Section";
 
     public CriticalSection() {
-        super(CARD_ID, DEFAULT_IMG_PATH_SKILL, 2, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, "rorgmod/cards/CriticalSection.png", 2, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         setMagic(3, 2);
         setExhaust();
     }

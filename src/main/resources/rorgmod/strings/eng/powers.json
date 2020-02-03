@@ -110,13 +110,53 @@
   "rorgmod:Storm of Steel": {
     "NAME": "Storm of Steel",
     "DESCRIPTIONS": [
-      "Whenever you Discard a card, Add 1 #yShiv into your hand."
+      "Whenever you Discard a card, Add #b",
+      " #yShiv into your hand."
     ]
   },
   "rorgmod:Storm of Steel+": {
     "NAME": "Storm of Steel",
     "DESCRIPTIONS": [
-      "Whenever you Discard a card, Add 1 #yShiv+ into your hand."
+      "Whenever you Discard a card, Add #b",
+      " #yShiv+ into your hand."
+    ]
+  },
+  "rorgmod:Wraith Form": {
+    "NAME": "Sanfu Form",
+    "DESCRIPTIONS": [
+      "The first #b",
+      " cards #yDiscarded is instead played."
+    ]
+  },
+  "rorgmod:Wraith Form 2": {
+    "NAME": "Fleur Form",
+    "DESCRIPTIONS": [
+      "Whenever you #yDiscard a card, Deal #b",
+      " #yDamage to a random enemy and Gain #b",
+      " #yBlock."
+    ]
+  },
+  "rorgmod:Lockdown": {
+    "NAME": "Lockdown",
+    "DESCRIPTIONS": [
+      "Your Orbs does not trigger #ypassively for #b",
+      " turns."
+    ]
+  },
+  "rorgmod:Hardcode": {
+    "NAME": "Hardcode",
+    "DESCRIPTIONS": [
+      "Orbs #yEvoke #btwice as many times for the next #b",
+      " turns."
+    ]
+  },
+  "rorgmod:Immunity": {
+    "NAME": "Immunity",
+    "DESCRIPTIONS": [
+      "Whenever you play an Attack card, ",
+      " receives #b10% less damage from #yAttacks this turn.",
+      " (Receives #b",
+      "% of total damage)"
     ]
   }
 }

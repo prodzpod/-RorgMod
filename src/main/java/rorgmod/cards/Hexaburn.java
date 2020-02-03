@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Hexaburn extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Hexaburn";
+    public static final String ID = "rorgmod:Hexaburn";
 
     public Hexaburn() {
-        super(CARD_ID, "rorgmod/cards/burn.png", -2, CardType.STATUS, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, "rorgmod/cards/burn.png", -2, CardType.STATUS, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
         setMagic(4, 0);
         setUnplayable();
     }

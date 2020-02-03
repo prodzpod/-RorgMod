@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Biogeneration extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Biogeneration";
+    public static final String ID = "rorgmod:Biogeneration";
 
     public Biogeneration() {
-        super(CARD_ID, DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL);
+        super(ID, DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.RARE, CardTarget.ALL);
         setAttack(16, 4);
         setExhaust();
     }

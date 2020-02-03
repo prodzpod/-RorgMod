@@ -2,17 +2,19 @@ package rorgmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.green.Prepared;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class PreparedRework extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:Prepared";
+    public static final String ID = "rorgmod:Prepared";
 
     public PreparedRework() {
-        super(CARD_ID, "rorgmod/cards/prepared.png", 0, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, "rorgmod/cards/prepared.png", 0, CardType.SKILL, CardColor.GREEN, CardRarity.COMMON, CardTarget.SELF);
         setMagic(1, 1);
         setCustomUpgrade();
+        REWORK_ID = Prepared.ID;
     }
 
     @Override

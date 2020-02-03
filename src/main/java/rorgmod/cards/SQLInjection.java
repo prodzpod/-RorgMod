@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class SQLInjection extends AbstractRorgCard {
 
-    public static final String CARD_ID = "rorgmod:SQL Injection";
+    public static final String ID = "rorgmod:SQL Injection";
 
     public SQLInjection() {
         super("rorgmod:SQL Injection", DEFAULT_IMG_PATH_ATTACK, 2, CardType.ATTACK, CardColor.BLUE, CardRarity.COMMON, CardTarget.ENEMY);
