@@ -210,6 +210,8 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 ### Added Relics 
 * **Coolant Medium** (Uncommon, Blue)
   * If you rested at the last Rest Site, gain 4 additional Orb slots at the start of each combat.
+* **Crimson Lotus** (Boss, Purple) (From **Violet Lotus**)
+  * Whenever you enter Wrath, Gain ![Energy](http://tinyurl.com/WatcherEnergy).
 * **Crooked Motherboard** (Rare, Blue)
   * Whenever a card debuffs you, gain 1 Artifact.
 * **Decaying Core** (Rare, Blue)
@@ -226,8 +228,6 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   * Double ALL rewards from Elites.
 * **Ceramic Fish** (Common, All)
   * Quintuple the gold gained from Elites. 
-* **Crimson Lotus** (Boss, Purple) (From **Violet Lotus**)
-  * Whenever you enter Wrath, Gain an ![Energy](http://tinyurl.com/WatcherEnergy).
 * **Data Disk** (Uncommon, Blue)
   * Start each combat with 1 Focus.
 * **Empty Cage** (Boss, All)
