@@ -149,6 +149,7 @@ public class ListHelper {
         add(Injury.ID);
         add(Reprogram.ID);
         add(Tempest.ID);
+        add(CreativeAI.ID);
     }};
 
     public static ArrayList<String          > cardsInBeta     = new ArrayList<String>();

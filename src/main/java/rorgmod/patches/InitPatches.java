@@ -36,10 +36,7 @@ import rorgmod.helpers.ListHelper;
 import rorgmod.powers.ImmunityPower;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
@@ -125,9 +122,24 @@ public class InitPatches {
             method= "initializeRelicList"
     )
     public static class RemoveRelics {
-        public static void Prefix(AbstractDungeon __instance) {
+        @SpireInsertPatch(
+                locator= Locator.class
+        )
+        public static void Insert(AbstractDungeon __instance) {
             RorgMod.logger.info(ListHelper.relicsToRemove.size() + " Relics removed");
-            AbstractDungeon.relicsToRemoveOnStart.addAll(ListHelper.relicsToRemove);
+            AbstractDungeon.commonRelicPool  .removeAll(ListHelper.relicsToRemove);
+            AbstractDungeon.uncommonRelicPool.removeAll(ListHelper.relicsToRemove);
+            AbstractDungeon.rareRelicPool    .removeAll(ListHelper.relicsToRemove);
+            AbstractDungeon.bossRelicPool    .removeAll(ListHelper.relicsToRemove);
+            AbstractDungeon.shopRelicPool    .removeAll(ListHelper.relicsToRemove);
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(Collections.class, "shuffle");
+                return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
+            }
         }
     }
 

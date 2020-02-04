@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import rorgmod.powers.HardcodePower;
 
 public class ShortCircuit extends AbstractRorgRelic {
     public static String ID = "rorgmod:Short Circuit";

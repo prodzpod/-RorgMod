@@ -31,7 +31,7 @@ public class CeramicFishRework extends AbstractRorgRelic {
     public void onRewardScreen() {
         if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
             AbstractDungeon.getCurrRoom().addGoldToRewards(
-                    Settings.isDailyRun ? 120 : AbstractDungeon.treasureRng.random(100, 140));
+                    Settings.isDailyRun ? 90 : AbstractDungeon.treasureRng.random(75, 105));
         }
     }
 

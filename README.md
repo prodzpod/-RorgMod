@@ -227,7 +227,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 * **Black Star** (Boss, All)
   * Double ALL rewards from Elites.
 * **Ceramic Fish** (Common, All)
-  * Quintuple the gold gained from Elites. 
+  * Quadruple the gold gained from Elites. 
 * **Data Disk** (Uncommon, Blue)
   * Start each combat with 1 Focus.
 * **Empty Cage** (Boss, All)
