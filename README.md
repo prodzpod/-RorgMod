@@ -206,6 +206,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 * **Steam Barrier**
 * **Tempest** (Reworked Version coming soon)
 * **Warcry**
+* **Creative AI**
 
 ### Added Relics 
 * **Coolant Medium** (Uncommon, Blue)
