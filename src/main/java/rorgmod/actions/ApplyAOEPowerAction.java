@@ -14,10 +14,6 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import rorgmod.RorgMod;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Iterator;
-
 public class ApplyAOEPowerAction extends AbstractGameAction {
     private AbstractOrb orb;
     private AbstractPower power;

@@ -2,7 +2,6 @@ package rorgmod.relics;
 
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class CoolantMedium extends AbstractRorgRelic implements CustomSavable<Boolean> {

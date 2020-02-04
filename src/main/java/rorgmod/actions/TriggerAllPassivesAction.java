@@ -4,8 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
-import java.util.Iterator;
-
 public class TriggerAllPassivesAction extends AbstractGameAction {
     public TriggerAllPassivesAction() {
         this.actionType = ActionType.SPECIAL;

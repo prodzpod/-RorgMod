@@ -2,10 +2,6 @@ package rorgmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-
-import java.util.Iterator;
 
 public class AutoShieldsPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Auto-Shields";

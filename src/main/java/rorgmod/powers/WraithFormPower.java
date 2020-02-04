@@ -1,15 +1,9 @@
 package rorgmod.powers;
 
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
-import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
-
-import javax.smartcardio.Card;
 
 public class WraithFormPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Wraith Form";

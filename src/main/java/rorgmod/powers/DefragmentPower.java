@@ -5,8 +5,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 
-import java.util.Iterator;
-
 public class DefragmentPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Defragment";
 

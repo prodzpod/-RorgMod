@@ -6,7 +6,6 @@
 package rorgmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.RemoveNextOrbAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -29,7 +28,7 @@ public class CycleAction extends AbstractGameAction {
             int size = orbs.size();
             for (int i = 0; i < amount; i++) {
                 this.addToBot(new RemoveNextOrbAction());
-                this.addToBot(new ChannelAction(orbs.get(i % size), false));
+                this.addToBot(new AddWithoutChannelingOrbAction(orbs.get(i % size), false));
             }
         }
         this.isDone = true;

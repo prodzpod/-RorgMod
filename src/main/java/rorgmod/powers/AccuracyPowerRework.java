@@ -1,16 +1,12 @@
 package rorgmod.powers;
 
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-
-import java.util.ArrayList;
+import rorgmod.patches.CustomTriggerPatches;
 
 public class AccuracyPowerRework extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Accuracy";
-    private ArrayList<AbstractCard> tracked = new ArrayList<>();
 
     public AccuracyPowerRework(AbstractCreature owner, int amount) {
         super(POWER_ID, "rorgmod/powers/accuracy", PowerType.BUFF, RorgPowerType.GENERIC, false, owner, amount);
@@ -24,7 +20,8 @@ public class AccuracyPowerRework extends AbstractRorgPower {
 
     public void onDrawOrDiscard() {
           for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (!tracked.contains(c)) updateExisting(c, amount);
+                if (!CustomTriggerPatches.AccuracyFix.accuracyHitting.get(c))
+                    updateExisting(c, amount);
           }
     }
 
@@ -33,7 +30,7 @@ public class AccuracyPowerRework extends AbstractRorgPower {
             c.baseDamage += amount;
             c.applyPowers();
         }
-        tracked.add(c);
+        CustomTriggerPatches.AccuracyFix.accuracyHitting.set(c, true);
     }
 
     private void updateCards(int amount) {

@@ -3,17 +3,12 @@ package rorgmod.patches;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.EchoForm;
 import com.megacrit.cardcrawl.cards.curses.Injury;
-import com.megacrit.cardcrawl.cards.purple.DevaForm;
-import com.megacrit.cardcrawl.cards.red.DemonForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
@@ -21,35 +16,28 @@ import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.city.BackToBasics;
 import com.megacrit.cardcrawl.events.exordium.GoldenIdolEvent;
-import com.megacrit.cardcrawl.events.shrines.GremlinWheelGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.MonsterHelper;
 import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
-import com.megacrit.cardcrawl.monsters.city.ShelledParasite;
-import com.megacrit.cardcrawl.monsters.exordium.FungiBeast;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import javassist.expr.NewExpr;
 import rorgmod.RorgMod;
-import rorgmod.cards.AbstractRorgCard;
 import rorgmod.cards.Ache;
-import rorgmod.cards.WraithFormAltRework;
-import rorgmod.cards.WraithFormRework;
 import rorgmod.helpers.ListHelper;
 import rorgmod.powers.ImmunityPower;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -66,7 +54,7 @@ public class InitPatches {
         @SpireInsertPatch(
                 locator= Locator.class
         )
-        public static void initializeCardPools(AbstractDungeon __instance) {
+        public static void Insert(AbstractDungeon __instance) {
             List<AbstractCard> cards = ListHelper.cardsToRemove.stream().map(element -> CardLibrary.cards.get(element)
             ).filter(Objects::nonNull).collect(Collectors.toList());
             RorgMod.logger.info(cards.size() + " Cards removed");
@@ -81,6 +69,50 @@ public class InitPatches {
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.NewExprMatcher(CardGroup.class);
+                return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
+            }
+        }
+    }
+
+    @SpirePatch(clz= CardLibrary.class, method="getAnyColorCard", paramtypez= {AbstractCard.CardType.class, AbstractCard.CardRarity.class})
+    @SpirePatch(clz= CardLibrary.class, method="getAnyColorCard", paramtypez= {AbstractCard.CardRarity.class})
+    public static class RemovePrismCards {
+        @SpireInsertPatch(
+                locator= Locator.class,
+                localvars= {"anyCard"}
+        )
+        public static void Insert(CardGroup anyCard) {
+            List<AbstractCard> cards = ListHelper.cardsToRemove.stream().map(element -> CardLibrary.cards.get(element)
+            ).filter(Objects::nonNull).collect(Collectors.toList());
+            anyCard.group.removeAll(cards);
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(CardGroup.class, "shuffle");
+                return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
+            }
+        }
+    }
+
+    @SpirePatch(clz= CardLibrary.class, method="getCurse", paramtypez= {})
+    @SpirePatch(clz= CardLibrary.class, method="getCurse", paramtypez= {AbstractCard.class, Random.class})
+    public static class RemoveRandomCurses {
+        @SpireInsertPatch(
+                locator= Locator.class,
+                localvars= {"tmp"}
+        )
+        public static void Insert(ArrayList<String> tmp) {
+            List<String> cards = ListHelper.cardsToRemove.stream().map(element -> CardLibrary.cards.get(element).cardID
+            ).filter(Objects::nonNull).collect(Collectors.toList());
+            tmp.removeAll(cards);
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(HashMap.class, "get");
                 return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
             }
         }

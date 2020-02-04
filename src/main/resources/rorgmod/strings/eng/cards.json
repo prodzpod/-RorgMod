@@ -71,7 +71,7 @@
   },
   "rorgmod:Steady Aim": {
     "NAME": "Steady Aim",
-    "DESCRIPTION": "Gain !B! block twice. Apply 1 Lock-On !M! times."
+    "DESCRIPTION": "Gain !B! Block twice. Apply 1 Lock-On !M! times."
   },
   "rorgmod:Centralize": {
     "NAME": "Centralize",
@@ -79,7 +79,7 @@
   },
   "rorgmod:Storm": {
     "NAME": "Storm",
-    "DESCRIPTION": "Every time you Channel Lightning, gain 1 temporary Strength."
+    "DESCRIPTION": "At the start of your turn, Channel 1 Lightning."
   },
   "rorgmod:Overheat": {
     "NAME": "Overheat",
@@ -205,7 +205,7 @@
   "rorgmod:Storm of Steel": {
     "NAME": "Storm of Steel",
     "DESCRIPTION": "Whenever you Discard a card, Add 1 *Shiv into your hand.",
-    "UPGRADE_DESCRIPTION": "Discard your hand. Add 1 *Shiv+ into your hand."
+    "UPGRADE_DESCRIPTION": "Whenever you Discard a card, Add 1 *Shiv+ into your hand."
   },
   "rorgmod:Prepared": {
     "NAME": "Prepared",

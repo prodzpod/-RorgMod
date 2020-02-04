@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class EmptyCageRework extends AbstractRorgRelic {
     public static String ID = "rorgmod:Empty Cage"; 

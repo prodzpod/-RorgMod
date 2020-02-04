@@ -12,10 +12,6 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import rorgmod.RorgMod;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Iterator;
-
 public class GlossyCoat extends AbstractRorgRelic {
     public static String ID = "rorgmod:Glossy Coat";
     public GlossyCoat() {

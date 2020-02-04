@@ -8,8 +8,6 @@ import com.megacrit.cardcrawl.orbs.Plasma;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import java.util.Iterator;
-
 public class LiquidMercury extends AbstractRorgRelic {
     public static String ID = "rorgmod:Liquid Mercury";
     public LiquidMercury() {

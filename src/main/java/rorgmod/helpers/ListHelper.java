@@ -24,8 +24,6 @@ import com.megacrit.cardcrawl.events.city.Ghosts;
 import com.megacrit.cardcrawl.events.shrines.GremlinWheelGame;
 import com.megacrit.cardcrawl.helpers.MonsterHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
-import com.megacrit.cardcrawl.monsters.city.ShelledParasite;
 import com.megacrit.cardcrawl.monsters.exordium.FungiBeast;
 import com.megacrit.cardcrawl.potions.GhostInAJar;
 import com.megacrit.cardcrawl.relics.*;
@@ -171,7 +169,7 @@ public class ListHelper {
         add(new RelicAdds(CeramicFishRework.class, RelicType.SHARED));
         add(new RelicAdds(BlackStarRework.class, RelicType.SHARED));
         add(new RelicAdds(BootRework.class, RelicType.SHARED));
-        add(new RelicAdds(ShortCircuit.class, RelicType.BLUE));
+//        add(new RelicAdds(ShortCircuit.class, RelicType.BLUE));
     }};
     public static ArrayList<RelicChanges    > relicsToTweak   = new ArrayList<RelicChanges>() {{
         add(new RelicChanges(MummifiedHand.ID, AbstractRelic.RelicTier.RARE));
@@ -191,8 +189,8 @@ public class ListHelper {
         add(CeramicFish.ID);
         add(Matryoshka.ID);
         add(Boot.ID);
-        add(CrackedCore.ID);
-        add(FrozenCore.ID);
+//        add(CrackedCore.ID);
+//        add(FrozenCore.ID);
     }};
 
     public static ArrayList<String          > relicsInBeta    = new ArrayList<String>();

@@ -3,6 +3,7 @@ package rorgmod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.*;
@@ -10,7 +11,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CombatRewardScreen;
-import javafx.scene.effect.Light;
 import javassist.CtBehavior;
 import rorgmod.helpers.MetricHelper;
 import rorgmod.powers.AbstractRorgPower;
@@ -103,6 +103,19 @@ public class CustomTriggerPatches {
                 ((AbstractRorgPower) power).onOrbPassive(__instance);
             if (AbstractDungeon.player.hasPower(LockdownPower.POWER_ID)) return SpireReturn.Return(null);
             return SpireReturn.Continue();
+        }
+    }
+
+    @SpirePatch(clz= AbstractCard.class, method= SpirePatch.CLASS)
+    public static class AccuracyFix {
+        public static SpireField<Boolean> accuracyHitting = new SpireField<>(() -> false);
+    }
+
+    @SpirePatch(clz= AbstractCard.class, method= "makeStatEquivalentCopy")
+    public static class AccuracyFix2 {
+        public static AbstractCard Postfix(AbstractCard __result, AbstractCard __instance) {
+            AccuracyFix.accuracyHitting.set(__result, AccuracyFix.accuracyHitting.get(__instance));
+            return __result;
         }
     }
 }

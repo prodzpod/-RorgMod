@@ -42,8 +42,8 @@
   "rorgmod:Storm": {
     "NAME": "폭풍",
     "DESCRIPTIONS": [
-      "전기를 영창할 때 마다 일시적 힘을 #b",
-      " 얻습니다."
+      "매 턴 시작시, 전기를 #b",
+      " 번 영창합니다."
     ]
   },
   "rorgmod:Overheat": {

@@ -5,14 +5,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import java.util.Iterator;
-
 public class Antivirus extends AbstractRorgCard {
 
     public static final String ID = "rorgmod:Antivirus";
 
     public Antivirus() {
-        super(ID, "rorgmod/cards/anti_virus.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, "rorgmod/cards/anti_virus.png", 1, CardType.SKILL, CardColor.BLUE, CardRarity.COMMON, CardTarget.SELF);
         setBlock(5, 3);
     }
 

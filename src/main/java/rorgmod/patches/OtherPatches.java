@@ -3,7 +3,6 @@ package rorgmod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
@@ -11,21 +10,16 @@ import com.megacrit.cardcrawl.actions.unique.BurnIncreaseAction;
 import com.megacrit.cardcrawl.cards.blue.EchoForm;
 import com.megacrit.cardcrawl.cards.purple.DevaForm;
 import com.megacrit.cardcrawl.cards.red.DemonForm;
-import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.exordium.Mushrooms;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.city.ShelledParasite;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.custom.CustomModeScreen;
-import com.megacrit.cardcrawl.trials.CustomTrial;
 import com.megacrit.cardcrawl.ui.buttons.ProceedButton;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import javassist.CannotCompileException;
 import javassist.NotFoundException;
@@ -38,10 +32,6 @@ import rorgmod.cards.WraithFormAltRework;
 import rorgmod.cards.WraithFormRework;
 import rorgmod.events.GremlinWheelRework;
 import rorgmod.powers.OverheatPower;
-import rorgmod.relics.ShortCircuit;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @SuppressWarnings("unused")
 public class OtherPatches {
@@ -141,16 +131,16 @@ public class OtherPatches {
         }
     }
 
-    @SpirePatch(clz= Defect.class, method= "getStartingRelics")
-    public static class ShortCircuitInit {
-        public static SpireReturn<ArrayList<String>> Prefix() {
-            ArrayList<String> retVal = new ArrayList<String>() {{
-                add(ShortCircuit.ID);
-            }};
-            UnlockTracker.markRelicAsSeen(ShortCircuit.ID);
-            return SpireReturn.Return(retVal);
-        }
-    }
+//    @SpirePatch(clz= Defect.class, method= "getStartingRelics")
+//    public static class ShortCircuitInit {
+//        public static SpireReturn<ArrayList<String>> Prefix() {
+//            ArrayList<String> retVal = new ArrayList<String>() {{
+//                add(ShortCircuit.ID);
+//            }};
+//            UnlockTracker.markRelicAsSeen(ShortCircuit.ID);
+//            return SpireReturn.Return(retVal);
+//        }
+//    }
 
     @SpirePatch(clz= CustomModeScreen.class, method= "addNonDailyMods")
     public static class TrueFormChange {

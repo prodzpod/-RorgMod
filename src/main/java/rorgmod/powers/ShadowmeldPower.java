@@ -1,10 +1,8 @@
 package rorgmod.powers;
 
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.DarkImpulseAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Dark;
 
 public class ShadowmeldPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Shadowmeld";

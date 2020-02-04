@@ -117,7 +117,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 ### Reworked Cards 
 * **Accuracy** (1 ![Energy](http://tinyurl.com/SilentsEnergy), Power, Uncommon, Green)
   * ALL 0 cost Attacks deal 3(5) additional damage.
-* **Alchemize** (1(0) ![Energy](http://tinyurl.com/ColorlessEnergy), Skill, Rare, *Colorless*)
+* **Alchemize** (1(0) ![Energy](http://tinyurl.com/ColorlessEnergy), Skill, Rare, Colorless)
   * Obtain a random potion. Exhaust.
 * **Biased Cognition** (1 ![Energy](http://tinyurl.com/DefectEnergy), Power, Rare, Blue)
   * Gain *3(4)* Focus. At the start of your turn, lose 1 Focus.
@@ -159,7 +159,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   * Unplayable. If this card is discarded from your hand, draw 2 cards. Exhaust. (Doesn't Exhaust.)
 * **Regret** (Unplayable, Curse, Curse, Curse)
   * Redraw. Unplayable. At the end of your turn, Lose HP Equal to the amount of cards left in your hand.
-* **Sadistic Nature** (0 ![Energy](http://tinyurl.com/SilentsEnergy), Power, Rare, *Green*)
+* **Sadistic Nature** (0 ![Energy](http://tinyurl.com/SilentsEnergy), Power, Rare, Green)
   * Whenever you apply a debuff to an enemy, they take 3(4) damage.
 * **Sentinel** (2 ![Energy](http://tinyurl.com/IroncladEnergy), Skill, Uncommon, Red)
   * Gain 7(10) Block. If you Exhausted a card this turn, Gain ![Energy](http://tinyurl.com/IroncladEnergy)![Energy](http://tinyurl.com/IroncladEnergy).
@@ -170,7 +170,7 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
 * **Searing Blow** (2 ![Energy](http://tinyurl.com/IroncladEnergy), Attack, Uncommon, Red)
   * Deal 16(+4, +5, +6...) damage. Can be Upgraded any number of times.
 * **Storm** (1(0) ![Energy](http://tinyurl.com/DefectEnergy), Power, Uncommon, Blue)
-  * Every time you channel Lightning, gain 1 temporary Strength.
+  * At the start of your turn, Channel 1 Lightning.
 * **Storm of Steel** (2 ![Energy](http://tinyurl.com/SilentsEnergy), Power, Rare, Green)
   * Whenever you Discard a card, Add 1 Shiv(Shiv+) into your hand.
 * **Thunder Strike** (2 ![Energy](http://tinyurl.com/DefectEnergy), Attack, Rare, Blue)
@@ -240,17 +240,13 @@ Keep in mind that I'm just a developer, all credits to card changes goes to:
   * Whenever you deal 5 of less unblocked attack damage, Increase it to 6.
 * **Wrist Blade** (Rare, Green)
   * Attacks that cost 0 deal 4 additional damage.
-* **Short Circuit** (Starter, Blue)
-  * Retain your hand on the first turn of each combat.
 * **Shovel** (Uncommon, All)
   * You can now *Dig* for relics at Rest Sites.
 
 ### Removed Relics
 * **Ceramic Fish** (Reworked Version coming soon)
-* **Cracked Core**
 * **Darkstone Periapt** (Reworked Version coming soon)
 * **Dead Branch**
-* **Frozen Core**
 * **Incense Burner**
 * **Matryoshka**
 * **Melange**

@@ -1,11 +1,8 @@
 package rorgmod.powers;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class StormPower extends AbstractRorgPower {
     public static final String POWER_ID = "rorgmod:Storm";
@@ -15,10 +12,7 @@ public class StormPower extends AbstractRorgPower {
     }
 
     @Override
-    public void onChannel(AbstractOrb orb) {
-        if (orb instanceof Lightning) {
-            this.addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-            this.addToBot(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
-        }
+    public void atStartOfTurn() {
+        for (int i = 0; i < amount; i++) this.addToBot(new ChannelAction(new Lightning()));
     }
 }

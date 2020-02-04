@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import rorgmod.RorgMod;
 
 public class DecayingCore extends AbstractRorgRelic {
     public static String ID = "rorgmod:Decaying Core";

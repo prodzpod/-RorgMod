@@ -1,7 +1,6 @@
 package rorgmod.cards;
 
 import basemod.helpers.BaseModCardTags;
-import com.megacrit.cardcrawl.cards.green.WraithForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rorgmod.powers.WraithFormAltPower;

@@ -3,14 +3,10 @@ package rorgmod.commands;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.shrines.Duplicator;
-import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import rorgmod.RorgMod;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Reward extends ConsoleCommand {
     public Reward() {

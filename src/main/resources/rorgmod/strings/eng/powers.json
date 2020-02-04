@@ -42,8 +42,8 @@
   "rorgmod:Storm": {
     "NAME": "Storm",
     "DESCRIPTIONS": [
-      "Every time you Evoke Lightning, Gain #b",
-      " Temporary Strength."
+      "At the start of your turn, Channel #b",
+      " Lightning."
     ]
   },
   "rorgmod:Overheat": {
